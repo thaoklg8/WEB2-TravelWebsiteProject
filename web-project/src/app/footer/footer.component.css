@@ -1,0 +1,30 @@
+:root {
+    --color-menu-footer: #04074C;
+}
+
+.footer-page {
+    background-color: #04074C;
+}
+
+.img-thumbnail {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.text-title {
+    font-weight: 700;
+    color: #F29134;
+}
+
+a:hover {
+    color: #F7C65D;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a {
+    color: white;
+}

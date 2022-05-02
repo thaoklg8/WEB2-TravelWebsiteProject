@@ -1,0 +1,53 @@
+<div class="container-fluid menu-page page">
+    <!-- menu -->
+    <div class="container">
+        <div class="row row-menu1">
+            <div class="col-8 ul-menu">
+                <div class="d-flex text-uppercase align-middle text-a-white">
+                    <div class="p-2 m-2 flex-fill text-center">
+                        <a routerLink="/home" routerLinkActive="active"><img src="assets/img/logo.png" style="height: 40px;" alt=""></a>
+                    </div>
+                    <div class="p-2 m-2 flex-fill text-center"><a routerLink="/home">Home</a></div>
+                    <div class="p-2 m-2 flex-fill text-center"><a routerLink="/tour">Tour</a></div>
+                    <div class="p-2 m-2 flex-fill text-center"><a routerLink="/review">Review</a></div>
+                    <div class="p-2 m-2 flex-fill text-center"><a routerLink="/aboutus">About us</a></div>
+
+                </div>
+            </div>
+            <div class="col-4 ul-login">
+                <div class="d-flex text-uppercase align-middle text-a-white">
+                    <div class="p-2 m-2 flex-fill text-center mr-3"><a routerLink="/register"><span class="glyphicon glyphicon-list-alt"></span> Register</a></div>
+                    <div class="p-2 m-2 flex-fill text-center mr-3"><a routerLink="/signinPhone"><span class="glyphicon glyphicon-user"></span> Sign in</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- menu2 -->
+        <div class="row-menu2">
+            <div class="row">
+                <div class="text-center col-8">
+                    <a routerLink="/home"><img src="assets/img/logo.png" style="height: 40px;"></a>
+                </div>
+                <div class="text-right col-4">
+                    <p onclick="if(document.getElementById('menu-right-hidden').style.display=='none')
+                    {document.getElementById('menu-right-hidden').style.display='block';}
+                else
+                    {document.getElementById('menu-right-hidden').style.display='none'}" title="Click to show/hide menu" type="button"><svg id="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/></svg></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- menu an hien -->
+    <div id="menu-right-hidden">
+        <ul>
+            <li><a routerLink="/home">Home</a></li>
+            <li><a routerLink="/tour">Tour</a></li>
+            <li><a routerLink="/review">Review</a></li>
+            <li><a routerLink="/aboutus">About us</a></li>
+            <li><a routerLink="/register">Register</a></li>
+            <li><a routerLink="/signinPhone">Sign in</a></li>
+        </ul>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,1 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+
+.flexrow {
+    display: flex;
+    color: red;
+}
+
+
+/* dung cho tour */
+
+.page {
+    background-color: #CAE0F3;
+}
+
+.card {
+    height: 98%;
+    border-radius: 5px;
+}
+
+.btn-detail {
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    background-color: antiquewhite;
+}
+
+
+/* het */
+
+
+/* chung */
+
+@media only screen and (max-width: 3000px) {
+    * {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    * {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    * {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    * {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    * {
+        font-size: 10px;
+    }
+}
+
+
+/* 
+.bg-mainColor {
+    background-color: 04074C;
+} */
+
+:root {
+    --color-menu-footer: #04074C;
+}
+
+
+/* het */

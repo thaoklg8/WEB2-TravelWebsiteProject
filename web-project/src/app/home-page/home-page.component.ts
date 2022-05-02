@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyserviceService } from '../myservice.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor() { }
+tours: any;
+errorMessage: String = ""
+  constructor(private _service:MyserviceService) { }
 
   ngOnInit(): void {
+    this.getAllTours();
+  }
+
+  getAllTours(){
+    this._service.getTours().subscribe({
+      next: data => this.tours = data, 
+      error: err => this.errorMessage = err
+    })
   }
 
 }

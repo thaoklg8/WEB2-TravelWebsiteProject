@@ -1,1 +1,98 @@
-<p>tour-page works!</p>
+<div class="page">
+    <!-- <app-menu></app-menu> -->
+    <div class="page text-justify">
+        <!-- tour -->
+        <div class="container mt-5 mb-5 align-items-end justify-content-center">
+            <div class="row ">
+                <div class="col-3 col-md-4 col-sm-6 col-xs-12" style="min-width:300px" *ngFor="let p of tours">
+                    <div class="card mt-3 position-relative">
+                        <img src="assets/img/Tour/{{p.Image}}.png">
+
+                        <div class="card-title">
+                            <p hidden>{{p.Id}}</p>
+                            <p class="card-title text-danger m-3" style="font-weight: 600;"><svg xmlns="http://www.w3.org/2000/svg" height="12" fill="currentColor" class="bi bi-pin-map-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+  <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+</svg><span class="m-3 text-danger">{{p.Destination}}</span></p>
+                            <div class="row m-3">
+                                <div class="col-6">
+                                    <p class="card-title">{{p.Province}}</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="card-title text-center test label label-info">{{p.Price}} VNĐ</p>
+
+                                </div>
+                            </div>
+
+                            <!-- <p class="test"> Chữ nhấp nháy</p> -->
+                            <style>
+                                @-webkit-keyframes my {
+                                    0% {
+                                        color: #F8CD0A;
+                                    }
+                                    50% {
+                                        color: #fff;
+                                    }
+                                    100% {
+                                        color: #F8CD0A;
+                                    }
+                                }
+                                
+                                @-moz-keyframes my {
+                                    0% {
+                                        color: #F8CD0A;
+                                    }
+                                    50% {
+                                        color: #fff;
+                                    }
+                                    100% {
+                                        color: #F8CD0A;
+                                    }
+                                }
+                                
+                                @-o-keyframes my {
+                                    0% {
+                                        color: #F8CD0A;
+                                    }
+                                    50% {
+                                        color: #fff;
+                                    }
+                                    100% {
+                                        color: #F8CD0A;
+                                    }
+                                }
+                                
+                                @keyframes my {
+                                    0% {
+                                        color: #d00e1e;
+                                    }
+                                    50% {
+                                        color: rgb(11, 4, 9);
+                                    }
+                                    /* 100% {
+                                    color: hsl(0, 65%, 47%);
+                                } */
+                                }
+                                
+                                .test {
+                                    border-radius: 5px;
+                                    font-weight: bold;
+                                    -webkit-animation: my 700ms infinite;
+                                    -moz-animation: my 700ms infinite;
+                                    -o-animation: my 700ms infinite;
+                                    animation: my 700ms infinite;
+                                }
+                            </style>
+                            <p class="card-body">{{p.Content}}</p>
+                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block">Chi tiết</button></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- footer -->
+    <app-footer></app-footer>
+</div>

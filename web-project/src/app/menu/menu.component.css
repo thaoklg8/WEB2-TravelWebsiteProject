@@ -1,0 +1,48 @@
+.menu-page {
+    background-color: #04074C;
+    line-height: 40px;
+}
+
+.text-title {
+    font-weight: 700;
+    color: #F29134;
+}
+
+a:hover {
+    color: #F7C65D !important;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a,
+span {
+    color: white;
+}
+
+.row-menu2,
+#menu-right-hidden {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .row-menu1 {
+        display: none;
+    }
+    .row-menu2 {
+        display: block;
+    }
+}
+
+#icon {
+    color: white;
+}
+
+li {
+    list-style: none;
+}
