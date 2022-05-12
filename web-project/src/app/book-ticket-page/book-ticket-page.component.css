@@ -1,0 +1,361 @@
+/*PAGE book now*/
+.book_page {
+    margin: 0;
+    padding: 0;
+}
+
+.img_slidego img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+.information--center {
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: var(--space);
+    color: black;
+    background-color: rgb(243, 251, 253);
+    min-width: 300px;
+    flex: 1;
+    margin-top: var(--space);
+    border: 2px solid steelblue;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.input-group {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-bottom: 15px;
+}
+.input-title {
+    margin-bottom: 10px;
+}
+.flex-label span {
+    color: #d93025;
+}
+.input-text {
+    background-color: #fff;
+    height: 36px;
+    line-height: 34px;
+    width: 100%;
+    padding: 0 0 0 20px;
+    font-size: 15px;
+    color: #111;
+    border: 1px solid;
+    border-color: rgba(0,0,0,0.12);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+.input-text:focus {
+    outline: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    border-color: #03a9f4;
+}
+
+.page__content--information {
+    margin-left: 1.6%;
+    margin-right: 1.6%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: var(--space);
+    color: black;
+}
+
+.information--right img {
+    width: 100%;
+    margin-bottom: var(--space);
+}
+
+.book_page .information--left,
+.book_page .information--right {
+    background-color: rgb(243, 251, 253);
+    min-width: 300px;
+    flex: 1;
+    border: 2px solid steelblue;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 50px;
+
+}
+
+.book_page .information--left {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.book_page .information--right {
+    margin-bottom: 20px;
+}
+
+.book_page .information--left .flex-input {
+    border: 1px solid steelblue;
+    color: black;
+    border-radius: 2px;
+}
+
+.information--left .flex_row {
+    padding: 8px 5px;
+    display: flex;
+    text-align: left;
+}
+
+.information--left .flex-label {
+    display: inline-block;
+    width: 500px;
+    font-size: large;
+}
+
+.information--left .flex-input {
+    width: 300%;
+    outline-style: none;
+    border: none;
+    margin-right: 20px;
+    height: 40px;
+}
+
+.information--left #note {
+    height: 100px;
+}
+
+.information--left #number_book {
+    width: 80%;
+    text-align: center;
+}
+
+.information--left #place_book {
+    width: 200%;
+    text-align: center;
+}
+
+.book_page .information--right {
+    min-width: 300px;
+    flex: 1;
+}
+
+.book_page .btn-completed {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 130px;
+    height: 50px;
+    text-align: center;
+}
+/*Responsive  */
+@media screen and (max-width: 1250px) {
+    
+
+}
+@media screen and (max-width: 825px) {
+    /* Page Book now */
+    .information--center {
+        padding-left: 20px;
+    }
+    
+
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px) {
+    /* Page Book now */
+    .information--center {
+        padding-left: 20px;
+    }
+    .information--left {
+        padding-left: 20px;
+    }
+        .information--left .flex-input {
+            height: 30px;
+        }
+    
+        .information--left #note {
+            height: 50px;
+        }
+    
+        .information--left .flex-label {
+            font-size: medium;
+        }
+    
+        .book_page .information--left,
+        .book_page .information--right {
+            margin: 0 auto;
+        }
+}
+
+@media screen and (max-width: 404px) {
+    
+}
+/*Điện thoại bản nhỏ 320px*/
+@media screen and (max-width: 320px) {
+    /*book now*/
+        .book_page .information--left {
+            margin-bottom: var(--space);
+        }
+        .information--left #number_book{
+            width: 35px;
+        }
+}
+    
+/* Dùng chung chép từ cái cũ */
+/*Dùng chung toàn bộ website*/
+
+.page {
+    background-color: #cae0f3;
+}
+
+ :root {
+    --textColor: rgb(236, 238, 247);
+    --menuColor: #04074c;
+    --linkColor: #b5d4d2;
+    --footerColor: #04074c;
+    --mainColor: rgb(4, 20, 112);
+    --aHover: hsl(190deg 98% 52%);
+    --btnhover: hsl(211deg 91% 32%);
+    --space: 30px;
+    --infColor: #f3fbfd;
+    --menuRight: hsl(211deg 91% 32%);
+    --btnColor1: #f29134;
+    --btnColor2: #f7c65d;
+}
+
+.flexrow {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*dung chung*/
+.btn {
+    margin: 0 auto;
+    background-image: linear-gradient(0, #f29134, #f7c65d);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    color: white;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title_upperCase {
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: var(--space);
+    margin-bottom: var(--space);
+    color: #044d98;
+}
+
+.color {
+    color: #044d98;
+}
+
+ul a:hover,
+a:hover {
+    color: var(--aHover);
+}
+
+.btn>a {
+    color: var(--mainColor)
+}
+
+.btn a:hover {
+    color: var(--btnhover)
+}
+
+.btn:hover {
+    background-image: linear-gradient(0, #f29134, #f29134);
+}
+
+.price {
+    color: var(--mainColor);
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    height: 30px;
+    width: 60px;
+    color: #044d98;
+    background-color: #0dd4fd;
+    border-radius: 5px;
+}
+
+/*phần chỉnh div lớn nhất*/
+.page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+}
+
+/*phần chỉnh nội dung website*/
+.page__content {
+    max-width: 1230px;
+    margin: 0 auto;
+}
+
+.page__content--section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: var(--space);
+}
+
+/*máy tính bảng loại to, hiện thị chiều ngang*/
+@media screen and (max-width:1024px) {
+    #button__signout {
+        display: none;
+    }
+
+    .page__menu--ul {
+        width: 400px;
+    }
+}
+
+/*máy tính bảng loại to, hiện thị chiều dọc*/
+@media screen and (max-width: 768px) {
+    /*dung chung*/
+    .btn {
+        width: 100px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 18px;
+    }
+}
+
+/*máy tính bảng, hiện thị chiều dọc*/
+@media screen and (max-width: 600px) {
+    
+    .title {
+        font-size: 15px;
+    }
+}
+
+/*điện thoại, hiện thị chiều ngang*/
+@media screen and (max-width: 480px) {
+    
+}
+
+/*điện thoại, hiện thị chiều dọc*/
+@media screen and (max-width: 320px) {
+    /*dung chung*/
+    .btn {
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 50px;
+    }
+
+}

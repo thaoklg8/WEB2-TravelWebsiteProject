@@ -1,1 +1,163 @@
-<p>book-ticket-page works!</p>
+<app-menu></app-menu>
+<div class="book_page page">
+    <div id="page__menu"></div>
+
+    <form action="" method="get">
+        <div class="img_slidego">
+            <img src="assets/img/imgheader.jpg" alt="">
+        </div>
+
+        <div class="title_booknow">
+            <p class="title_upperCase" style="font-weight: bold;">ĐẶT VÉ ONLINE</p>
+        </div>
+
+        <div class="information--center">
+            <div class="flex_row">
+                <div class="row">
+                    
+                    <div class="col-lg-4">
+                        <div class="input-group w-75">
+                            <div class="input-title ">Ngày bắt đầu
+                                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2017/09/25/1506337426898-9ec2484fef85cd8e0a1d0b03f29dbae0.svg?tr=q-75" height="24" width="24">
+                            </div>
+
+                            <input type="datetime-local" class="input-text">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="input-group w-75">
+                            <div class="input-title">Khoảng thời gian
+                                <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/b/b0ee9b0e2caa9d0b970177b0c2ee77d0.svg" width="24" height="24">
+                            </div>
+
+                            <select id="duration" class="input-text">
+                                <option value="1">1 đêm</option>
+                                <option value="2">2 đêm</option>
+                                <option value="3">3 đêm</option>
+                                <option value="4">4 đêm</option>
+                              </select>
+                        </div>
+            
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="input-group w-75" >
+                            <div class="input-title">Ngày kết thúc
+                                <img src="https://ik.imagekit.io/tvlk/image/imageResource/2017/09/25/1506337426898-9ec2484fef85cd8e0a1d0b03f29dbae0.svg?tr=q-75" height="24" width="24">
+                            </div>
+                            <input type="datetime-local" class="input-text">
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    
+                    <div class="col-lg-4">
+                        <div class="input-group w-75">
+                            <div class="input-title">Số lượng người lớn
+                                <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/9/9c6f6176aba4da5748d57b769726d76e.svg" style="margin-right: 12px;">
+                            </div>
+                            <input type="number" class="input-text">
+                        </div> 
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="input-group w-75">
+                            <div class="input-title">Số lượng trẻ em
+                                <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/2/24c71ea8045b900d0eb06168c3cc8cf8.svg" style="margin-right: 12px;">
+                            </div>
+                            <input type="number" class="input-text">
+                        </div>
+            
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="input-group w-75">
+                            <div class="input-title">Địa điểm
+                                <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/0/06c6fdcf3e33d2950e2743ea8c3d2208.svg" width="24" height="24">
+                            </div>
+                            <select id="targetplace" class="input-text">
+                                <option value="">Chọn địa điểm bạn muốn</option>
+                                <option value="PhuQuoc">Phú Quốc</option>
+                                <option value="CanTho">Cần Thơ</option>
+                                <option value="LamDong">Lâm Đồng</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="page__content content">
+            <div class="page__content--information row">
+                <div class="information--left ">
+                    <p class="title_upperCase">THÔNG TIN ĐẶT VÉ CỦA KHÁCH HÀNG</p>
+                    <div class="flex_row">
+                        <label class="flex-label" for="name">Họ và tên  <span>*</span></label>
+                        <input class="flex-input input-text" type="text" id="name" name="name" required="" spellcheck="false">
+                    </div>
+                    <div class="flex_row">
+                        <label class="flex-label" for="email">Email  <span>*</span></label>
+                        <input class="flex-input input-text" type="text" id="email" name="email" required>
+                    </div>
+                    <div class="flex_row">
+                        <label class="flex-label" for="phone">Điện thoại <span>*</span></label>
+                        <input class="flex-input input-text" type="text" id="phone" name="phone" required>
+                    </div>
+                    <div class="flex_row">
+                        <label class="flex-label" for="number">Số lượng <span>*</span></label>
+                        <input class="flex-input input-text" type="text" id="number_book" onkeyup="sum()" required>
+                        <input class="flex-input input-text" type="text" placeholder="Hạ Long Tour" id="place_book" name="place">
+                    </div>
+                    <div class="flex_row">
+                        <label class="flex-label" for="price">Đơn giá</label>
+                        <input class="flex-input input-text" type="text" id="price">
+                    </div>
+                    <div class="flex_row">
+                        <label class="flex-label" for="discount">Mã giảm giá</label>
+                        <input class="flex-input input-text" type="text" id="discount" name="discount">
+                    </div>
+                    <div class="flex_row">
+                        <label class="flex-label" for="total">Tổng thanh toán</label>
+                        <input class="flex-input input-text" type="text" id="total">
+                    </div> 
+                    <div class="flex_row">
+                        <label class="flex-label" for="payment">Hình thức thanh toán <span>*</span></label>
+                        <select  class="flex-input input-text" id="payment" required>
+                            <option value="">Chọn phương thức bạn muốn</option>
+                            <option value="internetbanking">Internet Banking</option>
+                            <option value="mastercard">Master Card</option>
+                            <option value="visa">Visa</option>
+                        </select>
+                    </div>
+                    <div class="flex_row">
+                        <label class="flex-label" for="note">Ghi chú </label>
+                        <textarea class="flex-input input-text" name="" id="note" placeholder="Nhập ghi chú vào đây"></textarea>
+                    </div>
+
+                    <div class="btn btn-completed flex_row ">
+                        <a href="#" onclick="alert('Bạn đã đặt vé thành công!')">Hoàn Thành</a>
+                    </div>
+                    
+                </div>
+                
+                <div class="information--right " id="img">
+                    <p class="title_upperCase">HÌNH ẢNH LIÊN QUAN ĐẾN TOUR</p>
+                    <img src="assets/img/BookNow/444.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div id="page__footer"></div>
+</div>
+
+<!-- <script>
+window.onload = function() {
+    loadUserName();
+    loadUserInfor();
+}
+</script> -->
+
+
