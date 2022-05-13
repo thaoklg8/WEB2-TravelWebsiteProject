@@ -4,6 +4,8 @@ const port = 3000
     //http reuquest logger
 const morgan = require('morgan');
 app.use(morgan('combined'));
+//mongo
+const mongoose = require('mongoose');
 //dung voi postman kieu json 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());

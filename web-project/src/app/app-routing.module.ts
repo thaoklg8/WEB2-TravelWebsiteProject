@@ -4,8 +4,10 @@ import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MenuRightComponent } from './menu-right/menu-right.component';
+import { ProvisionPageComponent } from './provision-page/provision-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
+import { SecurityPageComponent } from './security-page/security-page.component';
 import { SigninEmailPageComponent } from './signin-email-page/signin-email-page.component';
 import { SigninPhonePageComponent } from './signin-phone-page/signin-phone-page.component';
 import { TourPageComponent } from './tour-page/tour-page.component';
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path:'adminTour', component:ToursAdminComponent},
   {path:'admin', component:AdminPageComponent},
   {path:'menuRight', component:MenuRightComponent},
+  {path:'provision', component:ProvisionPageComponent},
+  {path:'security', component:SecurityPageComponent},
 
 ];
 

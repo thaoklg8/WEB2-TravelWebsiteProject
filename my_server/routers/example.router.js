@@ -113,6 +113,23 @@ router.post('/user', async function(req, res) {
     }
 })
 
+////Insert user
+router.post("/register", async function(req, res) {
+    let user = new User({
+        Id: req.body.Id,
+        Name:req.body.Name,
+        Email: req.body.Email,
+        Phone: req.body.Phone,
+        Password: req.body.Password
+    })
+    try{
+    p= await user.save();
+    res.json({message:"success"})
+    } catch (err){
+        res.json( {message: err.message})
+    }
+})
+
 // update User
 router.patch("/:userId", async(req, res) => {
     try {

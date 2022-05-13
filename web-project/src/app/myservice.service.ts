@@ -9,7 +9,9 @@ const baseUrl ="http://localhost:3000";
   providedIn: 'root'
 })
 export class MyserviceService {
-  
+  getAllUsers() {
+    throw new Error('Method not implemented.');
+  }
   constructor(private _http:HttpClient) { }
 
   getUsers():Observable<User[]>{
@@ -32,10 +34,13 @@ export class MyserviceService {
     return this._http.patch(`${baseUrl}/${id}`,newData)
     }
     
-    deleteTour(id:string){
-      return this._http.delete<Tour>(`${baseUrl}/${id}`);
-    }
+  deleteTour(id:string){
+    return this._http.delete<Tour>(`${baseUrl}/${id}`);
+  }
 
+  postUser(data:User):Observable<any>{
+    return this._http.post<User>(`${baseUrl}/user`,data);
+  }
 
   handleError(err: HttpErrorResponse){
     return throwError(()=> new Error(err.message))

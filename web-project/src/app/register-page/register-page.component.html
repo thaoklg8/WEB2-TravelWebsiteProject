@@ -1,1 +1,59 @@
-<p>register-page works!</p>
+<div class="bg-color p-5">
+    <div class="form__option--re container-fluid border border-dark" >
+      <form [formGroup]="User" (ngSubmit)="submitData(User)" class="form" >
+        <p class="h3 title active text-uppercase text-center fw-bold">Đăng ký với EIV</p>
+        <input type="hidden" name="_id" [(ngModel)]="User['_id']">
+        <div class="mb-3">
+          <label class="form-label" for="name">Tên<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="name" placeholder="Nhập tên" formControlName="name" [class.is-invalid]="Name.invalid &&Name.touched">
+          <div *ngIf="Name.invalid && Name.touched">
+            <small class="text-danger" *ngIf="Name.errors?.['required']">Tên không được để trống</small>
+            <small class="text-danger" *ngIf="Name.errors?.['minlength']">Tên phải có tối thiểu 2 ký tự</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="email">Email<span class="text-danger">*</span></label>
+          <input type="email" id="email" [email]="true" class="form-control" placeholder="email@gmail.com" formControlName="email" [class.is-invalid]="Email.invalid && Email.touched">
+          <div *ngIf="Email.invalid && Email.touched">
+            <small class="text-danger" *ngIf="Email.errors?.['required']">Bạn chưa nhập email</small>
+            <small class="text-danger" *ngIf="Email.errors?.['email']">Email không hợp lệ</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="phone">Số điện thoại<span class="text-danger">*</span></label>
+          <input type="text" id="phone" name="phone" class="form-control" placeholder="0xxxxxxxxx" formControlName="phone" [class.is-invalid]="Phone.invalid && Phone.touched">
+          <div *ngIf="Phone.invalid && Phone.touched">
+            <small class="text-danger" *ngIf="Phone.errors?.['required']">Bạn chưa nhập Số điện thoại</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="pwd">Mật khẩu<span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập Mật khẩu" formControlName="pwd" [class.is-invalid]="Password.invalid && Password.touched">
+          <div *ngIf="Password.invalid && Password.touched">
+            <small class="text-danger" *ngIf="Password.errors['required']">Bạn chưa nhập Mật khẩu</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="confirmpwd">Xác nhận lại mật khẩu<span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="confirmpwd" name="confirmpwd" placeholder="Xác nhận lại mật khẩu" formControlName="confirmpwd" [class.is-invalid]="User.errors?.['misMatch']">
+          <small class="text-danger" *ngIf="User.errors?.['misMatch']">Mật khẩu không trùng khớp</small>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="agree" name="agree" formControlName="agree" [class.is-invalid]="Agree.value==false && Agree.touched">
+          <p class="h5 fw-bold pt-2 form-check-label">Chấp nhận <span><a class="text-decoration-none h5 fw-bold" href="#">điều khoản sử dụng</a></span> của EIV.</p>
+        </div>             
+  
+        <div class="mb-4 text-center">
+          <button class="btn btn-primary text-uppercase fw-bold bg-button">Đăng ký</button>
+        </div>
+        <p class="h5 text-center mb-2">hoặc tiếp tục với</p>
+        <div class="row text-uppercase text-center align-middle">
+          <div class="col-md-6 p-1"><a class="text-decoration-none" href="https://accounts.google.com/signin/v2/identifier?elo=1&flowName=GlifWebSignIn&flowEntry=AddSession">
+            <img class="img-fluid img-size-logo" src="https://pngimg.com/uploads/google/google_PNG19635.png" alt="">Google</a></div>
+          <div class="col-md-5 p-1"><a class="text-decoration-none" href="https://vi-vn.facebook.com/login/">
+            <img class="img-fluid img-size-logo" src="https://kulak.kuleuven.be/nl/nieuws_activiteiten/activiteiten/images/logo-facebook.png" alt="">Facebook</a></div> 
+          </div>
+      </form>
+    </div>
+  </div>
+  <app-footer></app-footer>
