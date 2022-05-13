@@ -1,0 +1,30 @@
+.content__checkbox{
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+}
+.checkbox-row{
+    margin-left: 20px;
+    width: 120px;
+}
+/* .btn-heart{
+    border-color: #dc3545;
+    color: #dc3545;
+}
+.btn-comment{
+    border-color: blue;
+} */
+.btn-heart:hover{
+    background-color: #dc3545;
+    color: white;
+}
+
+
+@media screen and (max-width: 765px){
+    .bbb{
+        order: 1;
+        margin-bottom: 20px;
+    }.aaa {
+        order: 2;
+    }
+}

@@ -21,6 +21,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
 import { MenuRightComponent } from './menu-right/menu-right.component';
+import { PostReviewComponent } from './post-review/post-review.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MenuRightComponent } from './menu-right/menu-right.component';
     RegisterPageComponent,
     AdminPageComponent,
     AboutusPageComponent,
-    MenuRightComponent
+    MenuRightComponent,
+    PostReviewComponent
   ],
   imports: [
     BrowserModule,
