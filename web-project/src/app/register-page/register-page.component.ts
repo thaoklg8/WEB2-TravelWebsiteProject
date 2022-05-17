@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { passwordValidator } from 'validators/check.validators';
+import { User } from '../models/user';
 import { MyserviceService } from '../myservice.service';
 
 
@@ -11,14 +12,15 @@ import { MyserviceService } from '../myservice.service';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent implements OnInit {
-  User: any;
+  userForm: any;
   users:any;
+  user: User = new User();
   errorMessage: String = ""
 
   constructor(private _service:MyserviceService, private _toast:ToastrService,private _FormBuilder:FormBuilder ) {}
 
   ngOnInit(): void {
-    this.User =this._FormBuilder.group({
+    this.userForm =this._FormBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required]],
       phone: ['', [Validators.required]],
@@ -28,44 +30,39 @@ export class RegisterPageComponent implements OnInit {
     }, 
     {Validators:[passwordValidator]})
     }
-
-  getAllUsers(){
-    this._service.getUsers().subscribe({
-      next:(data:any) => this.users = data,
-      error:err=> this.errorMessage=err
-    })}
   
-  submitData(form:NgForm){
-    if(this.User._id == ''){
-      
-      // Insert product
-      this._service.postUser(this.users).subscribe(res => {
-      let resData = JSON.parse(JSON.stringify(res));
-      if (res.message === "success"){
-        // alert("Successful!");
-        this._toast.success("Inserted Successfully!", "Success!")
-        this.getAllUsers();
-        }else{
-          alert("Fail!");
-        }
-      })}}
-
+    submitData(form:NgForm){
+      console.log("Form data ", form.value)
+      console.log("Model: ",this.user)
+      if(this.user._id==null){ //insert
+        alert("OK")
+        this._service.postUser(this.user).subscribe(res=>{
+          let resData = JSON.parse(JSON.stringify(res));
+          if(resData.message ==="success"){
+            alert("Insert Success!")
+            this._toast.success("Inserted successfully!","SUCCESS")
+          }
+          else{
+            alert("Fail!")
+          }
+        })
+      }
+    }
     get Name(){
-      return this.User.controls['name']
+      return this.userForm.controls['name']
     }
     get Email(){
-      return this.User.controls['email']
+      return this.userForm.controls['email']
     }
     get Phone(){
-      return this.User.controls['phone']
+      return this.userForm.controls['phone']
     }
     get Password(){
-      return this.User.controls['pwd']
+      return this.userForm.controls['pwd']
     }
     get Agree(){
-      return this.User.controls['agree']
+      return this.userForm.controls['agree']
     }
-    
       
   }
   

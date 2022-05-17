@@ -1,15 +1,15 @@
 <div class="bg-color p-5">
-    <div class="form__option--si container-fluid border border-dark" >
-        <form [formGroup]="signinEmailForm" class="form" >
+    <div class="form__option--si container-fluid border border-dark">
+        <form [formGroup]="signinEmailForm" (ngSubmit)="submitData(signinEmailForm)" class="form">
             <div class="row text-uppercase text-center mt-3 fw-bold text-a-yellow">
                 <div class="p-1 col-md-6"><a class="text-decoration-none" style="color: #f29134;" href="#">Email</a></div>
-                <div class="p-1 col-md-5"><a class="text-decoration-none" routerLink="/signinPhone" href="#">Di động</a></div> 
+                <div class="p-1 col-md-5"><a class="text-decoration-none" routerLink="/signinPhone" href="#">Di động</a></div>
             </div>
             <hr class="mt-1">
             <p class="h3 title active text-uppercase text-center fw-bold">Đăng nhập với EIV</p>
             <div class="mb-3">
                 <label class="form-label" for="email">Email<span class="text-danger">*</span></label>
-                <input type="email" id="email" [email]="true" class="form-control" placeholder="email@gmail.com" formControlName="email" [class.is-invalid]="email.invalid && email.touched">
+                <input type="email" id="email" [email]="true" class="form-control" placeholder="email@gmail.com" formControlName="email" [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="user.Email">
                 <div *ngIf="email.invalid && email.touched">
                     <small class="text-danger" *ngIf="email.errors?.['required']">Bạn chưa nhập email</small>
                     <small class="text-danger" *ngIf="email.errors?.['email']">Email không hợp lệ</small>
@@ -17,37 +17,41 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="pwd">Mật khẩu<span class="text-danger">*</span></label>
-                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập Mật khẩu" formControlName="pwd" [class.is-invalid]="pwd.invalid && pwd.touched">
+                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Nhập Mật khẩu" formControlName="pwd" [class.is-invalid]="pwd.invalid && pwd.touched" [(ngModel)]="user.Password">
                 <div *ngIf="pwd.invalid && pwd.touched">
                     <small class="text-danger" *ngIf="pwd.errors['required']">Bạn chưa nhập Mật khẩu</small>
                 </div>
             </div>
             <div class="row text-center text-a-red align-middle mb-2">
-                <div class="col-md-6 p-1"><a class="text-decoration-none" href="#">
-                    <i class="bi bi-clipboard-plus-fill"></i>     Tạo tài khoản
-                </a></div>
-                <div class="col-md-5 p-1"><a class="text-decoration-none" href="#">
-                    <i class="bi bi-question-circle-fill"></i>     Quên mật khẩu?
-                </a></div> 
+                <div class="col-md-6 p-1">
+                    <a class="text-decoration-none" href="#">
+                        <i class="bi bi-clipboard-plus-fill"></i> Tạo tài khoản
+                    </a>
+                </div>
+                <div class="col-md-5 p-1">
+                    <a class="text-decoration-none" href="#">
+                        <i class="bi bi-question-circle-fill"></i> Quên mật khẩu?
+                    </a>
+                </div>
             </div>
             <div class="mb-4 text-center">
                 <button class="btn btn-primary text-uppercase fw-bold bg-button">Đăng nhập</button>
             </div>
             <p class="h5 text-center mb-2">hoặc tiếp tục với</p>
             <div class="row text-uppercase text-center align-middle">
-                <div class="col-md-6 p-1"><a class="text-decoration-none" href="https://accounts.google.com/signin/v2/identifier?elo=1&flowName=GlifWebSignIn&flowEntry=AddSession">
-                    <img class="img-fluid img-size-logo" src="https://pngimg.com/uploads/google/google_PNG19635.png" alt="">
-                    Google
-                   
-                </a></div>
-                <div class="col-md-5 p-1"><a class="text-decoration-none" href="https://vi-vn.facebook.com/login/">
-                    <img class="img-fluid img-size-logo" src="https://kulak.kuleuven.be/nl/nieuws_activiteiten/activiteiten/images/logo-facebook.png" alt="">
-                    Facebook</a></div> 
+                <div class="col-md-6 p-1">
+                    <a class="text-decoration-none" href="https://accounts.google.com/signin/v2/identifier?elo=1&flowName=GlifWebSignIn&flowEntry=AddSession">
+                        <img class="img-fluid img-size-logo" src="https://pngimg.com/uploads/google/google_PNG19635.png" alt=""> Google
+
+                    </a>
+                </div>
+                <div class="col-md-5 p-1">
+                    <a class="text-decoration-none" href="https://vi-vn.facebook.com/login/">
+                        <img class="img-fluid img-size-logo" src="https://kulak.kuleuven.be/nl/nieuws_activiteiten/activiteiten/images/logo-facebook.png" alt=""> Facebook
+                    </a>
+                </div>
             </div>
         </form>
     </div>
 </div>
 <app-footer></app-footer>
-
-
-

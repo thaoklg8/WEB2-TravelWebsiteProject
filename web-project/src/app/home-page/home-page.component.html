@@ -89,9 +89,6 @@
                                 50% {
                                     color: rgb(11, 4, 9);
                                 }
-                                /* 100% {
-                                    color: hsl(0, 65%, 47%);
-                                } */
                             }
                             
                             .test {
@@ -104,8 +101,9 @@
                             }
                         </style>
                         <p class="card-body">{{p.Content}}</p>
-                        <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block">Chi tiết</button></div>
+                        <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block"><a routerLink="/tourDetail" (click)="detail(p._id)">Chi tiết</a></button></div>
                     </div>
+
                 </div>
             </div>
 
@@ -116,19 +114,6 @@
     <div class="border">
         <img class="card-img-top" src="https://dulich.cc/wp-content/uploads/2021/07/Untitled-3.jpg" alt="">
     </div>
-    <!-- hot tour -->
-    <!-- <div class="container">
-        <div style="height: 100px">
-            <div class="row d-flex align-items-end justify-content-center">
-                <div class="bg-warning col-md-2 col-xs-4" style="min-width:100px">
-                    <div class="m-2">
-                        <img class="card-img-top" src="https://shrivra.com/images/banner-p.png" alt="">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
 </div>
 <!-- footer -->
 <app-footer></app-footer>

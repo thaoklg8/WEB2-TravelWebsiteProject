@@ -1,23 +1,11 @@
 const express = require('express');
 const router = express.Router();
 router.get('/', function(req, res) {
-        res.send("OK User");
+        res.send("OK..");
     })
     //import models
 const User = require('../models/User')
-    // const Intro = require('../models/Intro')
 const Tour = require('../models/Tour')
-
-// get all users
-// router.get('/users', function(req, res) {
-//     User.find({}, function(err, data) {
-//         if (err) {
-//             res.json({ message: err.message })
-//         } else {
-//             res.json(data)
-//         }
-//     })
-// })
 
 // get all tour
 router.get('/tours', function(req, res) {
@@ -30,7 +18,18 @@ router.get('/tours', function(req, res) {
         })
 
     })
-    // insert tour
+    // get tour by id
+router.get('/tour/:tourId', async function(req, res) {
+    try {
+        const data = await Tour.findById(req.params.tourId)
+        res.json(data)
+    } catch (err) {
+        res.json({ message: err.message })
+    }
+
+})
+
+// insert tour
 router.post('/tour', async function(req, res) {
         let tour = new Tour({
             Id: req.body.Id,
@@ -85,9 +84,18 @@ router.delete('/:tourId', async(req, res) => {
 
     })
     /////////////////////////
-    // get product by id
-router.get('/:userId', async function(req, res) {
-    // console.log(req.params.id)
+    // get all users
+router.get('/users', function(req, res) {
+        User.find({}, function(err, data) {
+            if (err) {
+                res.json({ message: err.message })
+            } else {
+                res.json(data)
+            }
+        })
+    })
+    // get user by id
+router.get('/user/:userId', async function(req, res) {
     try {
         const data = await User.findById(req.params.userId)
         res.json(data)
@@ -97,13 +105,16 @@ router.get('/:userId', async function(req, res) {
 
 })
 
-// insert product
-router.post('/user', async function(req, res) {
-    // console.log('Data from client', req.body)
-    // res.send("Server recieved data!")
+// insert user
+router.post('/user/user', async function(req, res) {
     let user = new User({
-        name: req.body.name,
-        email: req.body.email
+        Id: req.body.Id,
+        Name: req.body.Name,
+        Email: req.body.Email,
+        Phone: req.body.Phone,
+        Password: req.body.Password,
+        Role: req.body.Role,
+        Image: req.body.Image
     })
     try {
         p = await user.save();
@@ -113,29 +124,21 @@ router.post('/user', async function(req, res) {
     }
 })
 
-////Insert user
-router.post("/register", async function(req, res) {
-    let user = new User({
-        Id: req.body.Id,
-        Name:req.body.Name,
-        Email: req.body.Email,
-        Phone: req.body.Phone,
-        Password: req.body.Password
-    })
-    try{
-    p= await user.save();
-    res.json({message:"success"})
-    } catch (err){
-        res.json( {message: err.message})
-    }
-})
-
 // update User
-router.patch("/:userId", async(req, res) => {
+router.patch("/user/:userId", async(req, res) => {
     try {
         await User.updateOne({ _id: req.params.userId }, {
-            $set: { price: req.body.price, name: req.body.name }
-        })
+                $set: {
+                    Id: req.body.Id,
+                    Name: req.body.Name,
+                    Email: req.body.Email,
+                    Phone: req.body.Phone,
+                    Password: req.body.Password,
+                    Role: req.body.Role,
+                    Image: req.body.Image
+                }
+            })
+            // p = await user.save();
         res.json({ message: "success" })
     } catch (err) {
         console.log(err.message);
@@ -145,7 +148,15 @@ router.patch("/:userId", async(req, res) => {
 
 
 //delete User
+router.delete('/user/:userId', async(req, res) => {
+    try {
+        await User.deleteOne({ _id: req.params.userId })
+        res.json({ message: "success" })
+    } catch (err) {
+        res.json({ message: err.message })
+    }
 
+})
 
 
 module.exports = router;

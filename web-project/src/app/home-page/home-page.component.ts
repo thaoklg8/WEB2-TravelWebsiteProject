@@ -13,6 +13,7 @@ errorMessage: String = ""
 
   ngOnInit(): void {
     this.getAllTours();
+    localStorage.getItem("_id")
   }
 
   getAllTours(){
@@ -21,5 +22,8 @@ errorMessage: String = ""
       error: err => this.errorMessage = err
     })
   }
-
+  detail(id:string){
+    localStorage.setItem("_id",id);
+    console.log(localStorage.getItem('_id'))
+  }
 }

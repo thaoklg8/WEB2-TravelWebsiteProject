@@ -1,1 +1,63 @@
-<p>users-admin works!</p>
+<!-- menu -->
+<!-- <app-menu></app-menu> -->
+<!-- body -->
+<div class="container mt-5 mb-5 align-items-end justify-content-center form-horizontal">
+
+    <form #FormUser="ngForm" (ngSubmit)="submitData(FormUser)">
+        <div class="form-group" hidden>
+            <label class="control-label col-sm-2">_Id</label>
+            <input type="text" id="_id" class="col-sm-10" name="_id" [(ngModel)]="user._id">
+        </div>
+        <div class="form-group">
+            <label for="id" class="control-label col-sm-2">Id</label>
+            <input type="text" id="id" class="col-sm-10" name="Id" [(ngModel)]="user.Id">
+        </div>
+        <div class="form-group">
+            <label for="email" class="control-label col-sm-2">Name</label>
+            <input type="text" id="email" class="col-sm-10" name="Email" [(ngModel)]="user.Name">
+        </div>
+        <div class="form-group">
+            <label for="phone" class="control-label col-sm-2">Phone</label>
+            <input type="text" id="phone" class="col-sm-10" name="Phone" [(ngModel)]="user.Phone">
+        </div>
+        <div class="form-group">
+            <label for="image" class="control-label col-sm-2">Image</label>
+            <input type="text" id="image" class="col-sm-10" name="Image" [(ngModel)]="user.Image">
+        </div>
+        <div class="form-group">
+            <label for="role" class="control-label col-sm-2">Role</label>
+            <input type="text" id="role" class="col-sm-10" name="Role" [(ngModel)]="user.Role">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+        </div>
+    </form>
+
+</div>
+<div class="content container-fluid align-items-end justify-content-center" style="font-size: 10px;">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Image</th>
+                <th>Role</th>
+            </tr>
+            <tr *ngFor="let u of users">
+                <td class="p-1">{{u.Id}}</td>
+                <td class="p-1">{{u.Name}}</td>
+                <td class="p-1">{{u.Email}}</td>
+                <td class="p-1">{{u.Phone}}</td>
+                <td class="p-1">{{u.Image}}</td>
+                <td class="p-1">{{u.Role}}</td>
+                <td><button (click)="onEdit(u)"><i class="glyphicon glyphicon-pencil"></i></button></td>
+                <td><button (click)="onDelete(u._id,FormUser)"><i class="glyphicon glyphicon-trash"></i></button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- footer -->
+<app-footer></app-footer>

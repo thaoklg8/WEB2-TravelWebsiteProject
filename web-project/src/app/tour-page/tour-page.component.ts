@@ -15,6 +15,7 @@ export class TourPageComponent implements OnInit {
   
     ngOnInit(): void {
       this.getAllTours();
+      localStorage.getItem("_id")
     }
   
     getAllTours(){
@@ -23,6 +24,9 @@ export class TourPageComponent implements OnInit {
         error: err => this.errorMessage = err
       })
     }
-  
-
+    detail(id:string){
+      localStorage.setItem("_id",id);
+      // console.log(localStorage.getItem('_id'))
+    }
+    
 }

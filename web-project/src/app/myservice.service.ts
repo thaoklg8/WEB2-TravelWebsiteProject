@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http'
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { User } from './models/user';
-// import { Intro } from './models/intro';
 import {Tour} from './models/tour';
 const baseUrl ="http://localhost:3000";
 @Injectable({
@@ -14,14 +13,14 @@ export class MyserviceService {
   }
   constructor(private _http:HttpClient) { }
 
-  getUsers():Observable<User[]>{
-    return this._http.get<User[]>(`${baseUrl}/users`).pipe(
+  getTours():Observable<Tour[]>{
+    return this._http.get<Tour[]>(`${baseUrl}/tours`).pipe(
       retry(2),
       catchError(this.handleError)
     )
   }
-  getTours():Observable<Tour[]>{
-    return this._http.get<Tour[]>(`${baseUrl}/tours`).pipe(
+  getTourById(id:string):Observable<Tour[]>{
+    return this._http.get<Tour[]>(`${baseUrl}/tour/${id}`).pipe(
       retry(2),
       catchError(this.handleError)
     )
@@ -37,14 +36,31 @@ export class MyserviceService {
   deleteTour(id:string){
     return this._http.delete<Tour>(`${baseUrl}/${id}`);
   }
+//////////////////User
 
+getUsers():Observable<User[]>{
+  return this._http.get<User[]>(`${baseUrl}/users`).pipe(
+    retry(2),
+    catchError(this.handleError)
+  )
+}
+getUserById(id:string):Observable<User[]>{
+  return this._http.get<User[]>(`${baseUrl}/user/${id}`).pipe(
+    retry(2),
+    catchError(this.handleError)
+  )
+}
   postUser(data:User):Observable<any>{
-    return this._http.post<User>(`${baseUrl}/user`,data);
+    return this._http.post<User>(`${baseUrl}/user/user`,data);
   }
-
+  updateUser(id:string, newData:User):Observable<any>{
+    return this._http.patch(`${baseUrl}/user/${id}`,newData)
+    }
   handleError(err: HttpErrorResponse){
     return throwError(()=> new Error(err.message))
   }
-
+  deleteUser(id:string){
+    return this._http.delete<Tour>(`${baseUrl}/user/${id}`);
+  }
 }
 

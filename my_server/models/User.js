@@ -7,7 +7,8 @@ const UserSchema = new Schema({
     Email: { type: String, required: false },
     Phone: { type: String, required: false },
     Password: { type: String, required: false },
-    Image: { type: String, required: false }
+    Image: { type: String, required: false },
+    Role: { type: String, required: false }
 })
 
 module.exports = mongoose.model('User', UserSchema)

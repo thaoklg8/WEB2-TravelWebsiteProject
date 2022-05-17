@@ -15,40 +15,6 @@ app.use(cors('cors'))
     //connect database
 const db = require('./config/db');
 db.connect();
-//import model
-// const User = require('./models/User');
-// const IntroTour = require('./models/Intro');
-
-
-// app.get('/', (req, res) => {
-//         res.send("Hello hello")
-//     })
-// app.get('/products', (req, res) => {
-//doc du lieu ao
-// data = [
-//     { productCode: 1, productName: "Heineken", productPrice: 19000 },
-//     { productCode: 2, productName: "Tiger", productPrice: 18000 },
-//     { productCode: 3, productName: "Sapporo", productPrice: 21000 }
-// ]
-// res.send(data)
-
-//doc du lieu tu db
-//cach 1:
-// Product.find({}, (err, data) => {
-//     if (err) {
-//         res.json({ "Error": err.message })
-//     } else {
-//         res.json(data)
-//     }
-// })
-
-//cach 2:
-//     Product.find({})
-//         .then(data => res.json(data))
-//         .catch(err => res.json({ message: err.message }))
-
-// })
-
 //import routers
 const exampleRouter = require('./routers/example.router');
 app.use('/', exampleRouter)

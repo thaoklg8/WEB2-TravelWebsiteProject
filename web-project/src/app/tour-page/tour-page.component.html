@@ -69,9 +69,6 @@
                                     50% {
                                         color: rgb(11, 4, 9);
                                     }
-                                    /* 100% {
-                                    color: hsl(0, 65%, 47%);
-                                } */
                                 }
                                 
                                 .test {
@@ -84,7 +81,7 @@
                                 }
                             </style>
                             <p class="card-body">{{p.Content}}</p>
-                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block">Chi tiết</button></div>
+                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block"><a routerLink="/tourDetail" (click)="detail(p._id)">Chi tiết</a></button></div>
                         </div>
                     </div>
                 </div>
