@@ -6,6 +6,8 @@ router.get('/', function(req, res) {
     //import models
 const User = require('../models/User')
 const Tour = require('../models/Tour')
+const Review = require('../models/Review')
+const Comment = require('../models/Comment')
 
 // get all tour
 router.get('/tours', function(req, res) {
@@ -149,14 +151,55 @@ router.patch("/user/:userId", async(req, res) => {
 
 //delete User
 router.delete('/user/:userId', async(req, res) => {
-    try {
-        await User.deleteOne({ _id: req.params.userId })
-        res.json({ message: "success" })
-    } catch (err) {
-        res.json({ message: err.message })
-    }
+        try {
+            await User.deleteOne({ _id: req.params.userId })
+            res.json({ message: "success" })
+        } catch (err) {
+            res.json({ message: err.message })
+        }
 
+    })
+    //////////////////////review
+    //get all reviews
+router.get('/reviews', function(req, res) {
+        Review.find({}, function(err, data) {
+            if (err) {
+                res.json({ message: err.message })
+            } else {
+                res.json(data)
+            }
+        })
+
+    })
+    // get review by id
+router.get('/review/:reviewId', async function(req, res) {
+        try {
+            const data = await Review.findById(req.params.reviewId)
+            res.json(data)
+        } catch (err) {
+            res.json({ message: err.message })
+        }
+
+    })
+    ///
+    //get all comments
+router.get('/comments', function(req, res) {
+        Comment.find({ ReviewId: '3' }, function(err, data) {
+            if (err) {
+                res.json({ message: err.message })
+            } else {
+                res.json(data)
+            }
+        })
+    })
+    //get comment by id review
+router.get('/comment/:reviewId', async function(req, res) {
+    Comment.find({ ReviewId: req.params.reviewId }, function(err, data) {
+        if (err) {
+            res.json({ message: err.message })
+        } else {
+            res.json(data)
+        }
+    })
 })
-
-
 module.exports = router;

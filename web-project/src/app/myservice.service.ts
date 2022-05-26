@@ -3,6 +3,10 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http'
 import { catchError, Observable, retry, throwError } from 'rxjs';
 import { User } from './models/user';
 import {Tour} from './models/tour';
+import { Review } from './models/review';
+import { Comment } from './models/comment';
+import { ReviewComment } from './models/review-comment';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 const baseUrl ="http://localhost:3000";
 @Injectable({
   providedIn: 'root'
@@ -62,5 +66,52 @@ getUserById(id:string):Observable<User[]>{
   deleteUser(id:string){
     return this._http.delete<Tour>(`${baseUrl}/user/${id}`);
   }
+
+
+//reviews
+
+getAllReviews():Observable<Review[]>{
+  return this._http.get<Review[]>(`${baseUrl}/reviews`).pipe(
+    retry(2),
+    catchError(this.handleError)
+  ) 
+}
+getReviewById(id:string):Observable<Review[]>{
+  return this._http.get<Review[]>(`${baseUrl}/review/${id}`).pipe(
+    retry(2),
+    catchError(this.handleError)
+  )
 }
 
+
+//comments
+getAllComments():Observable<Comment[]>{
+  return this._http.get<Comment[]>(`${baseUrl}/comments`).pipe(
+    retry(2),
+    catchError(this.handleError)
+  )
+}
+//
+getCommentByReviewId(id:string):Observable<Comment[]>{
+  return this._http.get<Comment[]>(`${baseUrl}/comment/${id}`).pipe(
+    retry(2),
+    catchError(this.handleError)
+  )
+}
+
+
+
+
+// getCommentReviewByReviewId(id:string){
+//  var r= this._http.get<Review['Content']>(`${baseUrl}/reviews`).pipe(
+//   retry(2),
+//   catchError(this.handleError))
+//   var c = this._http.get<Comment[]>(`${baseUrl}/comment/${id}`).pipe(
+//     retry(2),
+//     catchError(this.handleError)
+//   )
+//   return c
+// }
+
+
+}

@@ -12,7 +12,6 @@ const Tour = new Schema({
     Image: { type: String, required: false },
     Time: { type: String, required: false },
     Description: { type: String, required: false }
-
 })
 
 module.exports = mongoose.model('Tour', Tour)
