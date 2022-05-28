@@ -4,7 +4,7 @@
     /* line-height: 80px; */
 }
 
-.bg-color{
+.bg-color {
     background-color: #CAE0F3;
 }
 
@@ -12,10 +12,10 @@
     color: white;
 }
 
-.introEIV{
-    max-width: 900px;
+
+/* .introEIV {
     border: 1px solid black;
     background-color: white;
     margin: 0 auto;
     border-radius: 5px;
-}
+} */

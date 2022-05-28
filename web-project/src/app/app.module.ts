@@ -24,6 +24,9 @@ import { MenuRightComponent } from './menu-right/menu-right.component';
 import { PostReviewComponent } from './post-review/post-review.component';
 import { ProvisionPageComponent } from './provision-page/provision-page.component';
 import { SecurityPageComponent } from './security-page/security-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { SupportPageComponent } from './support-page/support-page.component';
+import { BlogPageComponent } from './blog-page/blog-page.component';
 
 
 @NgModule({
@@ -48,7 +51,10 @@ import { SecurityPageComponent } from './security-page/security-page.component';
     MenuRightComponent,
     PostReviewComponent,
     ProvisionPageComponent,
-    SecurityPageComponent
+    SecurityPageComponent,
+    ContactPageComponent,
+    SupportPageComponent,
+    BlogPageComponent
   ],
   imports: [
     BrowserModule,

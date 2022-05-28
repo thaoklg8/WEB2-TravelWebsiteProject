@@ -15,10 +15,15 @@
 .card {
     height: 98%;
     border-radius: 5px;
+    padding-bottom: 50px;
 }
 
 .btn-detail {
-    margin-bottom: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    right: 20px;
+    font-size: 30px;
 }
 
 .card:hover {

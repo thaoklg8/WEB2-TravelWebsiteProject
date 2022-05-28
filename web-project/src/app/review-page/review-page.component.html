@@ -86,7 +86,7 @@
                         <li>Thực hiện gửi cảm nhận đến cho chúng tôi</li>
                     </ul>
                     <div class="text-center">
-                        <button class="btn btn-warning"><a routerLink="/postReview">Đăng nhận xét</a></button>
+                        <button class="btn btn-warning" routerLink="/postReview">Đăng nhận xét </button>
                     </div>
                 </div>
             </div>
@@ -125,6 +125,7 @@
                             </div>
                             <div style="margin-right: 20%;">
                                 <button class="btn btn-default btn-comment" (click)="getCommentByReviewId(r.Id)"> <i class="bi bi-chat-text"></i><span> Trả lời</span></button>
+                                <button class="btn btn-default btn-comment" (click)="getCommentReviewByReviewId()"> <i class="bi bi-chat-text"></i><span> Trả lời</span></button>
                             </div>
                         </div>
                         <hr style="margin-left: 5%; margin-right: 5%;">
@@ -138,6 +139,42 @@
                 <button class="btn btn-primary" (click)="Click()">Click</button>
                 <!--  -->
                 <div class="comment mb-5" *ngFor="let c of comments">
+                    <div class="d-flex content-comment m-5">
+                        <img style="width: 100px; height: 100px; margin: 15px 15px; " src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-4.png" alt="">
+                        <div class="  p-3">
+                            <div class="" style="padding: 2%; border-radius: 5px; background-color: #f0f2f5;">
+                                <p class="font-weight-bold"> <b>{{c.Title}}</b> </p>
+                                <p>{{c.Content}}</p>
+                            </div>
+
+                            <div class="d-flex reacted">
+                                <div><small><a href="#">Yêu thích</a></small></div>
+                                <div style="margin-left: 20%;"><small><a href="#">Phản hồi</a></small></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- reply -->
+                    <div class="d-flex content-comment--rely " style="margin-left: 10% ; margin-right: 15px; ">
+
+                        <img style="width: 100px; height: 100px; margin: 15px 15px;" src="	https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-6.png" alt="">
+                        <div class="  p-3">
+                            <div class="" style="padding: 2%; border-radius: 5px; background-color: #f0f2f5;">
+                                <p class=""> <b>kenvin</b></p>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo nesciunt dolorum ad minima in maiores possimus, commodi deserunt voluptatibus minus dolores, eligendi ratione dolor blanditiis natus obcaecati molestias libero
+                                    facere?
+                                </p>
+                            </div>
+
+                            <div class="d-flex reacted ">
+                                <div><small><a href="#">Yêu thích</a></small></div>
+                                <div style="margin-left: 20%;"> <small><a href="#">Phản hồi</a></small></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="comment mb-5" *ngFor="let c of item">
                     <div class="d-flex content-comment m-5">
                         <img style="width: 100px; height: 100px; margin: 15px 15px; " src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-4.png" alt="">
                         <div class="  p-3">

@@ -1,8 +1,7 @@
 <div class="page">
-    <!-- <app-menu></app-menu> -->
-    <div class="page text-justify">
+    <div class="text-justify">
         <!-- tour -->
-        <div class="container mt-5 mb-5 align-items-end justify-content-center">
+        <div class="container mb-5 align-items-end justify-content-center">
             <div class="row ">
                 <div class="col-3 col-md-4 col-sm-6 col-xs-12" style="min-width:300px" *ngFor="let p of tours">
                     <div class="card mt-3 position-relative">
@@ -81,7 +80,7 @@
                                 }
                             </style>
                             <p class="card-body">{{p.Content}}</p>
-                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block"><a routerLink="/tourDetail" (click)="detail(p._id)">Chi tiết</a></button></div>
+                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block" routerLink="/tourDetail" (click)="detail(p._id)"><span>Chi tiết</span></button></div>
                         </div>
                     </div>
                 </div>

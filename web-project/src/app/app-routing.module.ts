@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusPageComponent } from './aboutus-page/aboutus-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { BlogPageComponent } from './blog-page/blog-page.component';
 import { BookTicketPageComponent } from './book-ticket-page/book-ticket-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MenuRightComponent } from './menu-right/menu-right.component';
 import { PostReviewComponent } from './post-review/post-review.component';
@@ -12,6 +14,7 @@ import { ReviewPageComponent } from './review-page/review-page.component';
 import { SecurityPageComponent } from './security-page/security-page.component';
 import { SigninEmailPageComponent } from './signin-email-page/signin-email-page.component';
 import { SigninPhonePageComponent } from './signin-phone-page/signin-phone-page.component';
+import { SupportPageComponent } from './support-page/support-page.component';
 import { TourDetailPageComponent } from './tour-detail-page/tour-detail-page.component';
 import { TourPageComponent } from './tour-page/tour-page.component';
 import { ToursAdminComponent } from './tours-admin/tours-admin.component';
@@ -33,7 +36,11 @@ const routes: Routes = [
   {path:'tourDetail',component:TourDetailPageComponent},
   {path:'adminUser', component:UsersAdminComponent},
   {path: 'book', component:BookTicketPageComponent},
-  {path:'postReview',component:PostReviewComponent}
+  {path:'postReview',component:PostReviewComponent},
+  //
+  {path: 'support', component:SupportPageComponent},
+  {path: 'contact', component:ContactPageComponent},
+  {path: 'blog', component:BlogPageComponent},
 
 ];
 

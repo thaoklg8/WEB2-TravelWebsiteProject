@@ -15,7 +15,7 @@ export class TourPageComponent implements OnInit {
   
     ngOnInit(): void {
       this.getAllTours();
-      localStorage.getItem("_id")
+      localStorage.getItem("IdTour")
     }
   
     getAllTours(){
@@ -25,8 +25,8 @@ export class TourPageComponent implements OnInit {
       })
     }
     detail(id:string){
-      localStorage.setItem("_id",id);
-      // console.log(localStorage.getItem('_id'))
+      localStorage.setItem("IdTour",id);
+      console.log("_id Tour: "+localStorage.getItem('IdTour'))
     }
     
 }

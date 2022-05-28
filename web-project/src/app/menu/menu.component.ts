@@ -7,12 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-localStorage=0;
+// localStorage=0;
   constructor() { }
-
+ 
   ngOnInit(): void {
   }
 // hiddenMenu(){
 
 // }
+
+
+
 }

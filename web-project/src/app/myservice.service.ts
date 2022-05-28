@@ -12,6 +12,9 @@ const baseUrl ="http://localhost:3000";
   providedIn: 'root'
 })
 export class MyserviceService {
+  reviews:any;
+  comments:any;
+  item:any;
   getAllUsers() {
     throw new Error('Method not implemented.');
   }
@@ -102,16 +105,22 @@ getCommentByReviewId(id:string):Observable<Comment[]>{
 
 
 
-// getCommentReviewByReviewId(id:string){
-//  var r= this._http.get<Review['Content']>(`${baseUrl}/reviews`).pipe(
-//   retry(2),
-//   catchError(this.handleError))
-//   var c = this._http.get<Comment[]>(`${baseUrl}/comment/${id}`).pipe(
-//     retry(2),
-//     catchError(this.handleError)
-//   )
-//   return c
-// }
+///
+getCommentReviewByReviewId():Observable<Comment[]>{
+ this.reviews= this.getAllReviews()
+  for(let i = 0; i<this.reviews.length;i++){
+   
+    this.item.Id=this.reviews[i].Id
+    this.item.Name=this.reviews[i].Name
+    this.item.Review=this.reviews[i].Content
+    // this.item.Comment= 
+    // this._http.get<Comment[]>(`${baseUrl}/comment/${this.reviews[i].Id}`).pipe(
+    //   retry(2),
+    //   catchError(this.handleError)
+    // )
+  }
+  return this.item
+}
 
 
 }

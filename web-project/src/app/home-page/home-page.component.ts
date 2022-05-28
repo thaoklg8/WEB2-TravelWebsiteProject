@@ -23,7 +23,7 @@ errorMessage: String = ""
     })
   }
   detail(id:string){
-    localStorage.setItem("_id",id);
-    console.log(localStorage.getItem('_id'))
+    localStorage.setItem("IdTour",id);
+    console.log("_id Tour: "+localStorage.getItem('_id'))
   }
 }

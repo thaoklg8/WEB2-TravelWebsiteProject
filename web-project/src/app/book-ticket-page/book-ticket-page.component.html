@@ -93,25 +93,25 @@
                 <div class="information--left ">
                     <p class="title_upperCase">THÔNG TIN ĐẶT VÉ CỦA KHÁCH HÀNG</p>
                     <div class="flex_row">
-                        <label class="flex-label" for="name">Họ và tên  <span>*</span></label>
-                        <input class="flex-input input-text" type="text" id="name" name="name" required="" spellcheck="false">
+                        <label class="flex-label" for="name">Họ và tên <span>*</span></label>
+                        <input class="flex-input input-text" type="text" id="name" name="name" required="" spellcheck="false" value={{user.Name}}>
                     </div>
                     <div class="flex_row">
                         <label class="flex-label" for="email">Email  <span>*</span></label>
-                        <input class="flex-input input-text" type="text" id="email" name="email" required>
+                        <input class="flex-input input-text" type="text" id="email" name="email" value={{user.Email}} required>
                     </div>
                     <div class="flex_row">
                         <label class="flex-label" for="phone">Điện thoại <span>*</span></label>
-                        <input class="flex-input input-text" type="text" id="phone" name="phone" required>
+                        <input class="flex-input input-text" type="text" id="phone" name="phone" value={{user.Phone}} required>
                     </div>
                     <div class="flex_row">
                         <label class="flex-label" for="number">Số lượng <span>*</span></label>
                         <input class="flex-input input-text" type="text" id="number_book" onkeyup="sum()" required>
-                        <input class="flex-input input-text" type="text" placeholder="Hạ Long Tour" id="place_book" name="place">
+                        <input class="flex-input input-text" type="text" id="place_book" name="place" readonly value={{tour.Destination}}>
                     </div>
                     <div class="flex_row">
                         <label class="flex-label" for="price">Đơn giá</label>
-                        <input class="flex-input input-text" type="text" id="price">
+                        <input class="flex-input input-text" type="text" id="price" readonly value="{{tour.Price}} VND">
                     </div>
                     <div class="flex_row">
                         <label class="flex-label" for="discount">Mã giảm giá</label>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="flex_row">
                         <label class="flex-label" for="total">Tổng thanh toán</label>
-                        <input class="flex-input input-text" type="text" id="total">
+                        <input class="flex-input input-text" type="text" id="total" readonly>
                     </div>
                     <div class="flex_row">
                         <label class="flex-label" for="payment">Hình thức thanh toán <span>*</span></label>
@@ -136,6 +136,7 @@
                     </div>
 
                     <div class="btn btn-completed flex_row ">
+                        <!-- <button class="btn btn-primary text-uppercase fw-bold bg-button" type="submit">Hoàn Thành</button> -->
                         <a href="#" onclick="alert('Bạn đã đặt vé thành công!')">Hoàn Thành</a>
                     </div>
 
@@ -143,7 +144,14 @@
 
                 <div class="information--right " id="img">
                     <p class="title_upperCase">HÌNH ẢNH LIÊN QUAN ĐẾN TOUR</p>
-                    <img src="assets/img/BookNow/444.jpg" alt="">
+                    <div class="image-middle">
+                        <img src="assets/img/BookNow/444.jpg" alt="">
+                        <hr>
+                        <img src="assets/img/Tour/{{tour.Image}}.png">
+
+
+                    </div>
+
                 </div>
             </div>
         </div>

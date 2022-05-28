@@ -25,6 +25,7 @@ export class SigninEmailPageComponent implements OnInit {
       pwd: ['', [Validators.required]],
     })
     this.getAllUsers()
+    localStorage.getItem('IdUser')
   }
     
     getAllUsers(){
@@ -44,15 +45,18 @@ export class SigninEmailPageComponent implements OnInit {
       console.log("Form data ", form.value)
       console.log("Model: ", this.user)
       this.users = this.getAllUsers();
+      
       console.log("All users: ", this.users)
-      for(let i=0; i< 10;i++){
+      for(let i=0; i<this.users.length;i++){
         if((this.users[i].Email==form.value.email) && (this.users[i].Password===form.value.pwd)){
           alert("Đăng nhập thành công")
           console.log('OK')
           console.log(this.users[i].Role)
+          localStorage.setItem('IdUser',this.users[i]._id)
+          console.log("_id User Sign in: "+ localStorage.getItem('IdUser'))
           break;
         }    
-        else if(i===10){
+        else if(i==this.users.length-1){
           alert("Sai Email hoặc Password")
         }   
       }
@@ -64,5 +68,13 @@ export class SigninEmailPageComponent implements OnInit {
     }
     get pwd(){
       return this.signinEmailForm.controls['pwd']
+    }
+    login(){
+      var login = null;
+      console.log(localStorage.getItem('IdUser'))
+      if(localStorage.getItem('IdUser')){
+        login= 1
+      }
+      return login
     }
 }

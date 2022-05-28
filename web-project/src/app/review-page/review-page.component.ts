@@ -9,6 +9,7 @@ import { MyserviceService } from '../myservice.service';
 export class ReviewPageComponent implements OnInit {
   reviews: any;
   comments: any;
+  item:any;
   errorMessage: String = ""
   constructor(private _service:MyserviceService) { }
 
@@ -40,12 +41,19 @@ export class ReviewPageComponent implements OnInit {
       error: err => this.errorMessage = err
     })
   }
-  // getCommentReviewByReviewId(id:string){
-  //   console.log(this._service.getCommentReviewByReviewId(id))
-  //   alert(this._service.getCommentReviewByReviewId(id))
-  //   alert("Hello")
-  // }
+
+  ////////////////////////////
+  getCommentReviewByReviewId(){
+    // console.log(this._service.getCommentReviewByReviewId(id))
+    // alert(this._service.getCommentReviewByReviewId(id))
+    // alert("Hello")
+    this._service.getCommentReviewByReviewId().subscribe({
+      next: data => this.item = data, 
+      error: err => this.errorMessage = err
+    })
+    console.log("review-page.ts")
+  }
   Click(){
-    
+    console.log("Log "+localStorage.getItem('IdUser'))
   }
 }
