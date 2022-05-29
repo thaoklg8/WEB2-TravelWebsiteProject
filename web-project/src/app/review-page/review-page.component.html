@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="bg-color" style="background-color: #CAE0F3;">
     <div class="container">
         <div class="text-center">
@@ -17,7 +18,6 @@
         <div class="row">
             <div class="loc col-md-6 mb-5">
                 <div class="card" style="background-color: #F3FBFD; border-radius: 5px;">
-
                     <form action="get" role="search">
                         <div class="contanier-fluid button-search ">
                             <div class="contanier-fluid button-filter mb-3 ">
@@ -63,9 +63,6 @@
 
                         </div>
                     </form>
-
-
-
                 </div>
 
 
@@ -93,7 +90,7 @@
                                 <li class="list-group-item border-0" style="background-color: #F3FBFD;"><i class="bi bi-caret-right-fill"></i> Thực hiện gửi cảm nhận đến cho chúng tôi</li>
                             </ul>
                         </div>
-                        <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block"><span>Đăng nhận xét</span></button></div>
+                        <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block" routerLink="/postReview"><span>Đăng nhận xét</span></button></div>
                     </div>
 
                 </div>
@@ -101,82 +98,7 @@
             </div>
 
         </div>
-        <!-- <div class="row">
-            <div class="loc col-md-5">
-                <form action="get" role="search">
-                    <div class="contanier-fluid button-search ">
-                        <div class="contanier-fluid button-filter mb-3 " style="background-color: #F3FBFD; border-radius: 5px;">
-                            <p class="text-center text-primary pt-3">Lọc các bài reivew </p>
-                            <div class="p-3">
-                                <input type="date" class="form-control p-3">
-                            </div>
-                            <div>
-                                <div class="form-check-inline p-3 ">
-                                    <label class="form-check-label ">
-                                        <input type="radio" class="form-check-input" name="optradio"> Mới nhất
-                                      </label>
-                                </div>
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="optradio"> Cũ nhất
-                                      </label>
-                                </div>
-                            </div>
-                            <div class="p-3">
-                                <div class="form__item--checkbox">
-                                    <div class="row--title">
-                                        <p>Vùng miền</p>
-                                    </div>
-                                    <div class="content__checkbox">
-                                        <div class="checkbox-row">
-                                            <input class="form-check-input" type="checkbox"><span> Miền Bắc</span>
-                                        </div>
-                                        <div class="checkbox-row">
-                                            <input class="form-check-input" type="checkbox"><span> Miền Trung</span>
-                                        </div>
-                                        <div class="checkbox-row">
-                                            <input class="form-check-input" type="checkbox"><span> Miền Nam</span>
-                                        </div>
-                                        <div class="checkbox-row">
-                                            <input class="form-check-input" type="checkbox"><span> Miền Tây</span>
-                                        </div>
-                                    </div>
-                                </div>
 
-                            </div>
-                            <div class="text-center pb-3">
-                                <button class="btn btn-warning ">Tìm kiếm</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </form>
-
-            </div>
-            <div class="col-md-7">
-                <div class="container-fliud content-giude p-3 " style="background-color: #F3FBFD; border-radius: 5px;">
-                    <div>
-                        <p class="text-center"> <span><i class="	glyphicon glyphicon-new-window"></i></span> <strong> Cách thức đăng bài trên trang review</strong> </p>
-                    </div>
-                    <ul>
-                        <li>
-                            <p>Truy cập vào Website EIV</p>
-                        </li>
-                        <li>
-                            <p>Đăng nhập tài khoản của EIV</p>
-                        </li>
-                        <li>
-                            <p>Click vào trang Review trên thanh menu</p>
-                        </li>
-                        <li>Nhấn nút "Đăng nhận xét" bên dưới</li>
-                        <li>Thực hiện gửi cảm nhận đến cho chúng tôi</li>
-                    </ul>
-                    <div class="text-center">
-                        <button class="btn btn-warning" routerLink="/postReview">Đăng nhận xét </button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <!-- Phan Review + Comment -->
         <div class="row">
             <div class="col-md-12 aaa ">
@@ -201,7 +123,7 @@
                                 <span><i style="color: red;" class="bi bi-heart-fill"></i> {{r.Like}} yêu thích</span>
                             </div>
                             <div style="margin-right: 10%;">
-                                <span><i  class="bi bi-chat-text-fill" style="color: blue;"></i> 50 bình luận</span>
+                                <span><i  class="bi bi-chat-text-fill" style="color: blue;"></i> {{r.Id}} bình luận</span>
                             </div>
                         </div>
                         <hr style="margin-left: 5%; margin-right: 5%;">
@@ -210,65 +132,50 @@
                                 <button class="btn btn-default btn-heart"><i class="bi bi-heart"></i><span> Yêu thích</span></button>
                             </div>
                             <div style="margin-right: 20%;">
-                                <button class="btn btn-default btn-comment" (click)="getCommentByReviewId(r.Id)"> <i class="bi bi-chat-text"></i><span> Trả lời</span></button>
-                                <button class="btn btn-default btn-comment" (click)="getAllCommentsByReviewId()"> <i class="bi bi-chat-text"></i><span> Trả lời</span></button>
+                                <button onclick="document.getElementById('formModal').style.display='block'" class="btn btn-default btn-comment" (click)="getCommentByReviewId(r.Id)">Bình luận</button>
                             </div>
                         </div>
                         <hr style="margin-left: 5%; margin-right: 5%;">
-                        <!--  -->
-                        <div class="col-md-12 bbb ">
-                            <!--  -->
-                            <div class="comment mb-5" *ngFor="let c of comments">
-                                <div class="d-flex content-comment m-5">
-                                    <img style="width: 100px; height: 100px; margin: 15px 15px; " src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-4.png" alt="">
-                                    <div class="  p-3">
-                                        <div class="" style="padding: 2%; border-radius: 5px; background-color: #f0f2f5;">
-                                            <p class="font-weight-bold"> <b>{{c.Title}}</b> </p>
-                                            <p>{{c.Content}}</p>
-                                        </div>
+                        <div class="w3-container">
+                            <div id="formModal" class="w3-modal">
+                                <div class="w3-modal-content">
+                                    <div class="w3-container">
+                                        <div class="uc-modal">
+                                            <div class="uc-m-content">
+                                                <div class="uc-m-header">
+                                                    <h4 class="text-center">Comment</h4>
+                                                    <i class="bi bi-x btn-danger" onclick="document.getElementById('formModal').style.display='none'"></i>
+                                                </div>
+                                                <div class="uc-m-body">
+                                                    <div *ngFor="let c of comments">
+                                                        <div class="d-flex content-comment m-5">
+                                                            <img style="width: 100px; height: 100px; margin: 15px 15px; " src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-4.png" alt="">
+                                                            <div class="  p-3">
+                                                                <div class="" style="padding: 2%; border-radius: 5px; background-color: #f0f2f5;">
+                                                                    <p class="font-weight-bold"> <b>{{c.Title}}</b> </p>
+                                                                    <p>{{c.Content}}</p>
+                                                                </div>
 
-                                        <div class="d-flex reacted">
-                                            <div><small><a href="#">Yêu thích</a></small></div>
-                                            <div style="margin-left: 20%;"><small><a href="#">Phản hồi</a></small></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="comment mb-12" *ngFor="let c of item">
-                                <div class="d-flex content-comment m-5">
-                                    <img style="width: 100px; height: 100px; margin: 15px 15px; " src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-4.png" alt="">
-                                    <div class="  p-3">
-                                        <div class="" style="padding: 2%; border-radius: 5px; background-color: #f0f2f5;">
-                                            <p class="font-weight-bold"> <b>{{c.Title}}</b> </p>
-                                            <p>{{c.Content}}</p>
-                                        </div>
+                                                                <div class="d-flex reacted">
+                                                                    <div><small><a href="#">Yêu thích</a></small></div>
+                                                                    <div style="margin-left: 20%;"><small><a href="#">Phản hồi</a></small></div>
+                                                                </div>
+                                                            </div>
 
-                                        <div class="d-flex reacted">
-                                            <div><small><a href="#">Yêu thích</a></small></div>
-                                            <div style="margin-left: 20%;"><small><a href="#">Phản hồi</a></small></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div> -->
-                            <div class="nhap comment p-5 ">
-                                <div class="d-flex">
-                                    <div>
-                                        <img src="	https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/user-img-3.png" alt="" style="width: 50px; height: 50px;">
-                                    </div>
-                                    <div style="width: 100%;">
-                                        <form action="">
-                                            <div style="padding: 10px;">
-                                                <input type="text" class="form-control" id="" name="" placeholder="nhập bình luận">
+                                                        </div>
+                                                    </div>
+                                                    <div class="uc-m-footer">
+                                                        <button class="btn btn-block btn-danger" onclick="document.getElementById('formModal').style.display='none'">Đóng</button>
+                                                    </div>
+                                                </div>
                                             </div>
+                                        </div>
 
-                                        </form>
                                     </div>
-
                                 </div>
                             </div>
-                            <!--  -->
                         </div>
+
                     </div>
                 </div>
             </div>

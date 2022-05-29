@@ -47,17 +47,6 @@ export class ReviewPageComponent implements OnInit {
       error: err => this.errorMessage = err
     })
   }
-  // Click(){
-  //   console.log("Log "+localStorage.getItem('IdUser'))
-  // }
-  // showModal=-1;
-  // show(index:any){
-  //   this.showModal= index;
-  // }
-  // closeModal(){
-  //   this.showModal = -1;
-  // }
-
   search(name:string){
     console.log(name)
     this._service.getSearchReviews(name).subscribe({

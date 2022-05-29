@@ -1,12 +1,15 @@
-.content__checkbox{
+.content__checkbox {
     display: flex;
     flex-wrap: wrap;
     width: 70%;
 }
-.checkbox-row{
+
+.checkbox-row {
     margin-left: 20px;
     width: 120px;
 }
+
+
 /* .btn-heart{
     border-color: #dc3545;
     color: #dc3545;
@@ -14,17 +17,88 @@
 .btn-comment{
     border-color: blue;
 } */
-.btn-heart:hover{
+
+.btn-heart:hover {
     background-color: #dc3545;
     color: white;
 }
 
 
-@media screen and (max-width: 765px){
-    .bbb{
+/* ----------modal--------------- */
+
+.uc-m-header .bi-x {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+}
+
+.uc-m-content {
+    overflow: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+    width: 60vw;
+    height: 80vh;
+}
+
+.uc-modal {
+    position: fixed;
+    background: #615f5fbf;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.uc-m-content {
+    background: #fff;
+    width: 50%;
+    margin: 3% auto;
+    border-radius: 6px;
+}
+
+.uc-m-header {
+    padding: 20px;
+    background: #0b3582;
+    color: #fff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: relative;
+}
+
+.uc-m-header h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.uc-m-body {
+    padding: 20px;
+    min-height: 200px;
+}
+
+.uc-m-footer {
+    padding: 20px;
+    border-top: 1px dashed #ccc;
+    text-align: right;
+}
+
+.uc-m-footer button {
+    margin-left: 20px;
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+
+/* ------------------------------- */
+
+@media screen and (max-width: 765px) {
+    .bbb {
         order: 1;
         margin-bottom: 20px;
-    }.aaa {
+    }
+    .aaa {
         order: 2;
     }
 }

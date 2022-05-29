@@ -1,53 +1,66 @@
-#containerdetail > .row {
+#containerdetail>.row {
     min-height: 100vh;
 }
-#containerdetail{
+
+#containerdetail {
     max-width: 1230px;
     margin: 0 auto;
 }
+
 .flex-fill {
-    flex:1 1 auto;
+    flex: 1 1 auto;
 }
+
 .page-detail {
     background-color: #cae0f3;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 100%;
     font-size: 20px;
 }
-.page__content--section{
+
+.page__content--section {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .size {
     width: 1230px;
 }
+
 .page__content--video video {
     border-radius: 10px;
 }
+
 .page__content--discription {
     background-color: #f3fbfd;
     height: 900px;
     max-width: 760px;
     border-radius: 10px;
 }
-.page__content--map{
+
+.page__content--map {
     max-width: 760px;
     height: auto;
 }
-.page__content--map iframe{
+
+.page__content--map iframe {
     border-radius: 10px;
 }
+
 .page__content--map h3 {
     font-weight: bold;
 }
+
 .part__right {
-    width:425px;
+    width: 425px;
 }
-.page__content--photos img{
+
+.page__content--photos img {
     border-radius: 10px;
 }
-.content__image--best{
+
+.content__image--best {
     background-color: #f3fbfd;
     border-radius: 10px;
 }
@@ -56,12 +69,14 @@
     display: flex;
     width: 300px;
     margin-bottom: calc(30px*2);
-    margin-left: 70px;
+    margin-left: 30px;
 }
+
 .content__best h4 {
     margin-left: 30px;
     font-weight: bolder;
 }
+
 .content__best .tour--item--content--right {
     margin-left: 30px;
     margin-top: 10px;
@@ -83,31 +98,35 @@
     background-color: #0dd4fd;
     border-radius: 5px;
 }
-.part__right--bottom h3{
-    font-weight: bolder;
-}
-.part__right--bottom .img_other{
-    border-radius: 10px;
-}
-.page__content h3{
+
+.part__right--bottom h3 {
     font-weight: bolder;
 }
 
-@media screen and (max-width: 768px){
-    .parent{
+.part__right--bottom .img_other {
+    border-radius: 10px;
+}
+
+.page__content h3 {
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 768px) {
+    .parent {
         margin: 50px auto;
         display: flex;
     }
-    .part__right{
+    .part__right {
         margin: auto;
     }
-   
 }
-.item--tours{
+
+.item--tours {
     border: 2px solid steelblue;
     border-radius: 10px;
 }
-.image--tours{
-border-top-left-radius: 10px;
-border-top-right-radius: 10px;
+
+.image--tours {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
