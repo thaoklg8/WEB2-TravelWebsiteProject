@@ -20,7 +20,19 @@ router.get('/tours', function(req, res) {
         })
 
     })
-    // get tour by id
+    // get search tour
+router.get('/tours/search/:name', function(req, res) {
+    var search = req.params.name;
+    Tour.find({ Destination: { $regex: req.params.name, $options: 'i' } }, function(err, data) {
+        if (err) {
+            res.json({ message: err.message })
+        } else {
+            res.json(data)
+        }
+    })
+})
+
+// get tour by id
 router.get('/tour/:tourId', async function(req, res) {
     try {
         const data = await Tour.findById(req.params.tourId)
@@ -182,16 +194,16 @@ router.get('/review/:reviewId', async function(req, res) {
 
     })
     ///
-    //get all comments
-router.get('/comments', function(req, res) {
-        Comment.find({ ReviewId: '3' }, function(err, data) {
-            if (err) {
-                res.json({ message: err.message })
-            } else {
-                res.json(data)
-            }
-        })
-    })
+    //     //get all comments
+    // router.get('/comments', function(req, res) {
+    //         Comment.find({ ReviewId: '3' }, function(err, data) {
+    //             if (err) {
+    //                 res.json({ message: err.message })
+    //             } else {
+    //                 res.json(data)
+    //             }
+    //         })
+    //     })
     //get comment by id review
 router.get('/comment/:reviewId', async function(req, res) {
     Comment.find({ ReviewId: req.params.reviewId }, function(err, data) {

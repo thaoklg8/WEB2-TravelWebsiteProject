@@ -7,12 +7,12 @@
         <div>
             <img class="card-img-top" src="https://tadtravel.vn/wp-content/uploads/2016/08/travel-banner.jpg" alt="">
         </div>
-        <div class="position-absolute top-50 start-50 translate-middle bg-warning">
+        <div class="position-absolute top-50 start-50 translate-middle">
             <form>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Search" #searchName>
                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit">
+                        <button class="btn btn-default" type="submit" (click)="search(searchName.value)">
                       <i class="glyphicon glyphicon-search"></i>
                     </button>
                     </div>
@@ -22,6 +22,9 @@
     </div>
 
     <!-- tour -->
+    <!-- <div *ngFor="let search of searchTours">
+        {{search.Destination}}
+    </div> -->
     <div class="container mt-5 mb-5 align-items-end justify-content-center">
         <div class="row ">
             <div class="col-3 col-md-4 col-sm-6 col-xs-12" style="min-width:300px" *ngFor="let p of tours">

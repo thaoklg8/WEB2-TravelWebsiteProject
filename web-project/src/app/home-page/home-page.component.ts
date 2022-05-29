@@ -8,6 +8,7 @@ import { MyserviceService } from '../myservice.service';
 })
 export class HomePageComponent implements OnInit {
 tours: any;
+searchTours:any;
 errorMessage: String = ""
   constructor(private _service:MyserviceService) { }
 
@@ -25,5 +26,18 @@ errorMessage: String = ""
   detail(id:string){
     localStorage.setItem("IdTour",id);
     console.log("_id Tour: "+localStorage.getItem('_id'))
+  }
+  search(name:string){
+    console.log(name)
+    this._service.getSearchTours(name).subscribe({
+      next: data => this.tours = data, 
+      error: err => this.errorMessage = err
+    })
+    // this._service.getTours().subscribe({
+    //   next: data => this.tours = data, 
+    //   error: err => this.errorMessage = err
+    // })
+    // this.tours.filter(this.tours.Destination,name)
+    console.log(this.tours)
   }
 }

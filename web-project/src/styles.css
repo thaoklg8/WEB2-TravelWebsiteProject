@@ -26,6 +26,10 @@
     font-size: 30px;
 }
 
+.btn-default {
+    height: 34px;
+}
+
 .card:hover {
     background-color: antiquewhite;
 }
