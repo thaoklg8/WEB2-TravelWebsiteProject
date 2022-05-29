@@ -33,11 +33,6 @@ errorMessage: String = ""
       next: data => this.tours = data, 
       error: err => this.errorMessage = err
     })
-    // this._service.getTours().subscribe({
-    //   next: data => this.tours = data, 
-    //   error: err => this.errorMessage = err
-    // })
-    // this.tours.filter(this.tours.Destination,name)
-    console.log(this.tours)
+    // console.log(this.tours)
   }
 }

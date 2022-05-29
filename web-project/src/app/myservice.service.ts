@@ -91,7 +91,12 @@ getReviewById(id:string):Observable<Review[]>{
     catchError(this.handleError)
   )
 }
-
+getSearchReviews(name:string):Observable<Review[]>{
+  return this._http.get<Review[]>(`${baseUrl}/reviews/search/${name}`).pipe(
+    retry(2),
+    catchError(this.handleError)
+  )
+}
 
 //comments
 getAllComments():Observable<Comment[]>{

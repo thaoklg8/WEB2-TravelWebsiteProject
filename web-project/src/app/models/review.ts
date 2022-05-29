@@ -7,6 +7,7 @@ export class Review{
     Image:string;
     Time: string;
     Content: string;
+    thumbPath: string;
     constructor(){
         this._id=null;
         this.Id="";
@@ -16,6 +17,7 @@ export class Review{
         this.Image="";
         this.Time="";
         this.Content="";
+        this.thumbPath=""
     }
 
 }

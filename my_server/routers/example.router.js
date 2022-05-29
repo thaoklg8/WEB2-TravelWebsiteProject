@@ -22,7 +22,7 @@ router.get('/tours', function(req, res) {
     })
     // get search tour
 router.get('/tours/search/:name', function(req, res) {
-    var search = req.params.name;
+    // var search = req.params.name;
     Tour.find({ Destination: { $regex: req.params.name, $options: 'i' } }, function(err, data) {
         if (err) {
             res.json({ message: err.message })
@@ -181,29 +181,39 @@ router.get('/reviews', function(req, res) {
                 res.json(data)
             }
         })
-
     })
     // get review by id
 router.get('/review/:reviewId', async function(req, res) {
-        try {
-            const data = await Review.findById(req.params.reviewId)
-            res.json(data)
-        } catch (err) {
-            res.json({ message: err.message })
-        }
+    try {
+        const data = await Review.findById(req.params.reviewId)
+        res.json(data)
+    } catch (err) {
+        res.json({ message: err.message })
+    }
+})
 
+// get search reviews
+router.get('/reviews/search/:name', function(req, res) {
+    // var search = req.params.name;
+    Review.find({ Content: { $regex: req.params.name, $options: 'i' } }, function(err, data) {
+        if (err) {
+            res.json({ message: err.message })
+        } else {
+            res.json(data)
+        }
     })
-    ///
-    //     //get all comments
-    // router.get('/comments', function(req, res) {
-    //         Comment.find({ ReviewId: '3' }, function(err, data) {
-    //             if (err) {
-    //                 res.json({ message: err.message })
-    //             } else {
-    //                 res.json(data)
-    //             }
-    //         })
-    //     })
+})
+
+//get all comments
+router.get('/comments', function(req, res) {
+        Comment.find({}, function(err, data) {
+            if (err) {
+                res.json({ message: err.message })
+            } else {
+                res.json(data)
+            }
+        })
+    })
     //get comment by id review
 router.get('/comment/:reviewId', async function(req, res) {
     Comment.find({ ReviewId: req.params.reviewId }, function(err, data) {
@@ -214,4 +224,6 @@ router.get('/comment/:reviewId', async function(req, res) {
         }
     })
 })
+
+
 module.exports = router;

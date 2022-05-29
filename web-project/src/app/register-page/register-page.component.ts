@@ -35,11 +35,10 @@ export class RegisterPageComponent implements OnInit {
       console.log("Form data ", form.value)
       console.log("Model: ",this.user)
       if(this.user._id==null){ //insert
-        alert("OK")
         this._service.postUser(this.user).subscribe(res=>{
           let resData = JSON.parse(JSON.stringify(res));
           if(resData.message ==="success"){
-            alert("Insert Success!")
+            // alert("Insert Success!")
             this._toast.success("Inserted successfully!","SUCCESS")
           }
           else{

@@ -8,8 +8,8 @@ const Review = new Schema({
     Date: { type: String, required: false },
     Title: { type: String, required: false },
     Image: { type: String, required: false },
-    Content: { type: String, required: false }
-
+    Content: { type: String, required: false },
+    thumbPath: { type: String, required: false }
 })
 
 module.exports = mongoose.model('Review', Review)

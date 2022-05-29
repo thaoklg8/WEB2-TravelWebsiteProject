@@ -34,6 +34,10 @@
     background-color: antiquewhite;
 }
 
+.completed button {
+    margin: auto 20px;
+}
+
 
 /* het */
 
