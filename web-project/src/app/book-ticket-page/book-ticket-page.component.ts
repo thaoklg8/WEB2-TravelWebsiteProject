@@ -12,11 +12,14 @@ export class BookTicketPageComponent implements OnInit {
 
 user:any;
 tour:any;
+tours:any;
 errorMessage: String = ""
 idUser:any
 idTour:any
 bookForm:any;
 book:any;
+total:any;
+num:any;
   constructor(private _service:MyserviceService,private _toast:ToastrService) { }
 
   ngOnInit(): void {
@@ -27,12 +30,20 @@ book:any;
     console.log("_id Tour " + this.idTour)
     this.getUserById();
     this.getTourById();
+    this.getAllTours();
+  }
+  getAllTours(){
+    this._service.getTours().subscribe({
+      next: data => this.tours = data, 
+      error: err => this.errorMessage = err
+    })
   }
   getUserById(){
     this._service.getUserById(this.idUser).subscribe({
       next: data => this.user = data, 
       error: err => this.errorMessage = err
     })
+    console.log(this.user)
     return this.user;
   }
   getTourById(){
@@ -47,6 +58,14 @@ book:any;
     console.log("Form data ", form.value)
     console.log("Model: ",this.book)
 
+  }
+  send(num1:string, num2:string){
+var a = parseInt(num1)
+var b=parseInt(num2)
+this.num=(a+b);
+this.total =(a+(b/2))*this.tour.Price
+console.log(this.total)
+return this.total;
   }
   // get Name(){
   //   return this.bookForm.controls['name']

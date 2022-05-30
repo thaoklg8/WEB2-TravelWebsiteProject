@@ -44,11 +44,11 @@ export class SigninEmailPageComponent implements OnInit {
         if((this.users[i].Email==form.value.email) && (this.users[i].Password===form.value.pwd)){
           alert("Đăng nhập thành công")
           console.log('OK')
-          console.log(this.users[i].Role)
-          localStorage.setItem('IdUser',this.users[i].Id)
+          console.log("Role: "+this.users[i].Role)
+          localStorage.setItem('IdUser',this.users[i]._id)
           localStorage.setItem('IdName',this.users[i].Name)
-          console.log(this.users[i].Id)
-          this._router.navigate(['/home']);
+          console.log("Id User: "+localStorage.getItem('IdUser'))
+          // this._router.navigate(['/home']);
           var target=  document.getElementById("login")!;
           target.innerHTML += "<div class='d-flex text-uppercase align-middle text-a-white text-light'>"
                     + "<div class='p-2 m-2 flex-fill text-center mr-3'><a href='#' class='text-light'>"+localStorage.getItem('IdName')+"</a></div>"
@@ -73,7 +73,7 @@ export class SigninEmailPageComponent implements OnInit {
     "</div>"
     localStorage.setItem('IdUser',"")
     localStorage.setItem('IdName',"")
-    console.log(localStorage.getItem('IdUser'))
+    console.log("Id User: "+localStorage.getItem('IdUser'))
     }
     get email(){
       return this.signinEmailForm.controls['email']

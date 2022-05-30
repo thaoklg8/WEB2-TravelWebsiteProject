@@ -49,23 +49,23 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" id="test">
 
                     <div class="col-lg-4">
                         <div class="input-group w-75">
                             <div class="input-title">Số lượng người lớn
                                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/9/9c6f6176aba4da5748d57b769726d76e.svg" style="margin-right: 12px;">
                             </div>
-                            <input type="number" class="input-text">
+                            <input type="number" value=0 class="input-text" #num1>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
                         <div class="input-group w-75">
-                            <div class="input-title">Số lượng trẻ em
+                            <div class="input-title">Số lượng trẻ em (50%)
                                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/2/24c71ea8045b900d0eb06168c3cc8cf8.svg" style="margin-right: 12px;">
                             </div>
-                            <input type="number" class="input-text">
+                            <input type="number" value=0 class="input-text" #num2>
                         </div>
 
                     </div>
@@ -87,63 +87,62 @@
             </div>
 
         </div>
-
         <div class="page__content content">
             <div class="page__content--information row">
                 <div class="information--left ">
                     <p class="title_upperCase">THÔNG TIN ĐẶT VÉ CỦA KHÁCH HÀNG</p>
-                    <div class="flex_row">
-                        <label class="flex-label" for="name">Họ và tên <span>*</span></label>
-                        <input class="flex-input input-text" type="text" id="name" name="name" required="" spellcheck="false" value={{user.Name}}>
-                    </div>
-                    <div class="flex_row">
-                        <label class="flex-label" for="email">Email  <span>*</span></label>
-                        <input class="flex-input input-text" type="text" id="email" name="email" value={{user.Email}} required>
-                    </div>
-                    <div class="flex_row">
-                        <label class="flex-label" for="phone">Điện thoại <span>*</span></label>
-                        <input class="flex-input input-text" type="text" id="phone" name="phone" value={{user.Phone}} required>
-                    </div>
-                    <div class="flex_row">
-                        <label class="flex-label" for="number">Số lượng <span>*</span></label>
-                        <input class="flex-input input-text" type="text" id="number_book" onkeyup="sum()" required>
-                        <input class="flex-input input-text" type="text" id="place_book" name="place" readonly value={{tour.Destination}}>
-                    </div>
-                    <div class="flex_row">
-                        <label class="flex-label" for="price">Đơn giá</label>
-                        <input class="flex-input input-text" type="text" id="price" readonly value="{{tour.Price}} VND">
-                    </div>
-                    <div class="flex_row">
-                        <label class="flex-label" for="discount">Mã giảm giá</label>
-                        <input class="flex-input input-text" type="text" id="discount" name="discount">
-                    </div>
-                    <div class="flex_row">
-                        <label class="flex-label" for="total">Tổng thanh toán</label>
-                        <input class="flex-input input-text" type="text" id="total" readonly>
-                    </div>
-                    <div class="flex_row">
-                        <label class="flex-label" for="payment">Hình thức thanh toán <span>*</span></label>
-                        <select class="flex-input input-text" id="payment" required>
+                    <form>
+                        <div class="flex_row">
+                            <label class="flex-label" for="name">Họ và tên <span>*</span></label>
+                            <input class="flex-input input-text" type="text" id="name" name="name" required="" spellcheck="false" value={{user.Name}}>
+                        </div>
+                        <div class="flex_row">
+                            <label class="flex-label" for="email">Email  <span>*</span></label>
+                            <input class="flex-input input-text" type="text" id="email" name="email" value={{user.Email}} required>
+                        </div>
+                        <div class="flex_row">
+                            <label class="flex-label" for="phone">Điện thoại <span>*</span></label>
+                            <input class="flex-input input-text" type="text" id="phone" name="phone" value={{user.Phone}} required>
+                        </div>
+                        <div class="flex_row">
+                            <label class="flex-label" for="number">Số lượng <span>*</span></label>
+                            <input class="flex-input input-text" type="text" id="number_book" value="{{num}}" required>
+                            <input class="flex-input input-text" type="text" id="place_book" name="place" readonly value={{tour.Destination}}>
+                        </div>
+                        <div class="flex_row">
+                            <label class="flex-label" for="price">Đơn giá</label>
+                            <input class="flex-input input-text" type="text" id="price" readonly value="{{tour.Price}} VND">
+                        </div>
+                        <div class="flex_row">
+                            <label class="flex-label" for="discount">Mã giảm giá</label>
+                            <input class="flex-input input-text" type="text" id="discount" name="discount">
+                        </div>
+                        <div class="flex_row">
+                            <label class="flex-label" for="total">Tổng thanh toán</label>
+                            <input class="flex-input input-text" type="text" id="total" readonly value="{{total}}">
+                        </div>
+                        <div class="flex_row">
+                            <label class="flex-label" for="payment">Hình thức thanh toán <span>*</span></label>
+                            <select class="flex-input input-text" id="payment" required>
                             <option value="">Chọn phương thức bạn muốn</option>
                             <option value="internetbanking">Internet Banking</option>
                             <option value="mastercard">Master Card</option>
                             <option value="visa">Visa</option>
                         </select>
-                    </div>
-                    <div class="flex_row">
-                        <label class="flex-label" for="note">Ghi chú </label>
-                        <textarea class="flex-input input-text" name="" id="note" placeholder="Nhập ghi chú vào đây"></textarea>
-                    </div>
+                        </div>
+                        <div class="flex_row">
+                            <label class="flex-label" for="note">Ghi chú </label>
+                            <textarea class="flex-input input-text" name="" id="note" placeholder="Nhập ghi chú vào đây"></textarea>
+                        </div>
 
 
 
-                    <!-- <button class="btn btn-primary text-uppercase fw-bold bg-button" type="submit">Hoàn Thành</button> -->
-                    <!-- <a href="#" onclick="alert('Bạn đã đặt vé thành công!')">Hoàn Thành</a> -->
-                    <div class="completed flex_row">
-                        <button class=" btn-default btn-warning btn-block">Hoàn thành</button>
-                    </div>
-
-
+                        <!-- <button class="btn btn-primary text-uppercase fw-bold bg-button" type="submit">Hoàn Thành</button> -->
+                        <!-- <a href="#" onclick="alert('Bạn đã đặt vé thành công!')">Hoàn Thành</a> -->
+                        <div class="completed flex_row">
+                            <button class=" btn-default btn-warning btn-block" (click)="send(num1.value,num2.value)">Hoàn thành</button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="information--right " id="img ">
