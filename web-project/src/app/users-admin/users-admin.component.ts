@@ -28,6 +28,13 @@ users:any;
     console.log("Form data ", form.value)
     console.log("Model: ",this.user)
     if(this.user._id==null){ //insert
+      if(this.user.Name ==""){
+          alert('Tên không được để trống')}
+        else{ if(this.user.Email==""){
+            alert('Email không được để trống')}
+          else{ if(this.user.Phone ==""){
+        alert("Số điện thoại không được để trống")}
+        else{
       alert('OK')
       this._service.postUser(this.user).subscribe(res=>{
         let resData = JSON.parse(JSON.stringify(res));
@@ -38,9 +45,16 @@ users:any;
         else{
           alert("Fail!")
         }
-      })
+      })}}}
     }
     else{ //update
+      if(this.user.Name ==""){
+        alert('Tên không được để trống')}
+      else{ if(this.user.Email==""){
+          alert('Email không được để trống')}
+        else{ if(this.user.Phone ==""){
+      alert("Số điện thoại không được để trống")}
+      else{
         this._service.updateUser(this.user._id, this.user).subscribe(res=>{
           let resData = JSON.parse(JSON.stringify(res));
           if(resData.message ==="success"){
@@ -51,7 +65,7 @@ users:any;
             alert(resData.message)
           }
         })
-    }
+    }}}}
     this.getAllUsers();
   }
   onEdit(data:User){
