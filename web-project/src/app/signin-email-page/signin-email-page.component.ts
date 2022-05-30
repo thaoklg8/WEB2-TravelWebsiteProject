@@ -48,13 +48,11 @@ export class SigninEmailPageComponent implements OnInit {
           localStorage.setItem('IdUser',this.users[i]._id)
           localStorage.setItem('IdName',this.users[i].Name)
           console.log("Id User: "+localStorage.getItem('IdUser'))
-          // this._router.navigate(['/home']);
-          var target=  document.getElementById("login")!;
-          target.innerHTML += "<div class='d-flex text-uppercase align-middle text-a-white text-light'>"
-                    + "<div class='p-2 m-2 flex-fill text-center mr-3'><a href='#' class='text-light'>"+localStorage.getItem('IdName')+"</a></div>"
-                    +"<div class='p-2 m-2 flex-fill text-center mr-3'><a href='#' class='text-light' (click)='reset()'> Sign out</a></div>" +"</div>";
-          var target1= document.getElementById("signin")!;
-          target1.innerHTML = "";
+          this._router.navigate(['/home'])
+          .then(() => {
+            window.location.reload();
+          });
+          
           break;
         }    
         else if(i==this.users.length-1){

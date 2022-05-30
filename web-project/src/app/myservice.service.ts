@@ -5,8 +5,8 @@ import { User } from './models/user';
 import {Tour} from './models/tour';
 import { Review } from './models/review';
 import { Comment } from './models/comment';
-import { ReviewComment } from './models/review-comment';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
+// import { ReviewComment } from './models/review-comment';
+// import { Content } from '@angular/compiler/src/render3/r3_ast';
 const baseUrl ="http://localhost:3000";
 @Injectable({
   providedIn: 'root'
@@ -114,24 +114,14 @@ getCommentByReviewId(id:string):Observable<Comment[]>{
 }
 
 
-
-
-///
-getCommentReviewByReviewId():Observable<Comment[]>{
- this.reviews= this.getAllReviews()
-  for(let i = 0; i<this.reviews.length;i++){
-   
-    this.item.Id=this.reviews[i].Id
-    this.item.Name=this.reviews[i].Name
-    this.item.Review=this.reviews[i].Content
-    // this.item.Comment= 
-    // this._http.get<Comment[]>(`${baseUrl}/comment/${this.reviews[i].Id}`).pipe(
-    //   retry(2),
-    //   catchError(this.handleError)
-    // )
-  }
-  return this.item
+//post review
+uploadData(data: any){
+  return this._http.post(`${baseUrl}/review/upload/post`, data).pipe(
+    retry(2),
+    catchError(this.handleError)
+  )
 }
+
 
 
 }

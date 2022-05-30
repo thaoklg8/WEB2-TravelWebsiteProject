@@ -2,10 +2,9 @@
     <div class="container mb-3 ">
         <div class="row">
             <div class="col-md-6 mt-3">
-                <div>
-                    <a href="#" class="text-center text-danger ">
-                        <h3 class=" lh-lg"> <i class="bi bi-bag-check-fill"></i> Đặt tour ngay nhận ưu đãi liền tay </h3>
-                    </a>
+                <div class="text-center text-danger ">
+                    <h3 class=" lh-lg" routerLink="/tour"> <i class="bi bi-bag-check-fill"></i> Đặt tour ngay nhận ưu đãi liền tay </h3>
+
                     <img src="https://o.rada.vn/data/image/2021/05/04/Thang-canh-4.jpg" class="mt-4" width="100%" alt="">
                 </div>
             </div>
@@ -13,7 +12,7 @@
                 <h3 class="text-center lh-lg text-primary">Chia sẻ cảm nhận đến với EIV</h3>
                 <form [formGroup]="testForm" (ngSubmit)="onSubmit(testForm.value)">
                     <div class="mb-3">
-                        <label for="name">Tiêu đề bài viết</label>
+                        <label for="name">Tiêu đề bài viết <span style="color: red;">*</span> </label>
                         <input class="form-control" type="text" id="name" formControlName="name" [class.is-invalid]="nameInput.invalid && nameInput.touched">
                         <div *ngIf="nameInput.invalid && nameInput.touched">
                             <small class="text-danger" *ngIf="nameInput.errors?.['required']">Vui lòng nhập tiêu đề</small>
@@ -21,13 +20,15 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="post-img">Đăng ảnh</label>
+                        <label for="post-img">Đăng ảnh <span style="color: red;">*</span></label>
                         <input type="file" name="post-img" class="form-control" (change)="onSelectFile($event)">
                     </div>
                     <div class="mb-3">
                         <label for="">Nội dung</label>
-                        <textarea class="form-control" style="height: 100px; resize: none;" name="content__text--cusreview" id="cusreview_text" placeholder=" Nhập nội dung review vào đây.... "></textarea>
+                        <textarea class="form-control" id="cusreview_text" formControlName="content" name="content" placeholder=" Nhập nội dung review vào đây.... " [class.is-invalid]="contentInput.invalid && contentInput.touched"></textarea>
+
                     </div>
+
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary " style="width: 100%;" [disabled]="testForm.invalid || !file">Đăng bài</button>
 

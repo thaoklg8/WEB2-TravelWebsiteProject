@@ -11,12 +11,14 @@ export class ReviewPageComponent implements OnInit {
   comments: any;
   item:any;
   errorMessage: String = ""
-
+u:any;
   constructor(private _service:MyserviceService) { }
 
   ngOnInit(): void {
     this.getAllReviews();
     localStorage.getItem("_reviewId")
+    this.u=localStorage.getItem('u')
+    console.log("u: "+this.u)
   }
 
   getAllReviews(){

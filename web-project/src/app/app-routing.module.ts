@@ -8,6 +8,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MenuRightComponent } from './menu-right/menu-right.component';
 import { PostReviewComponent } from './post-review/post-review.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { ProvisionPageComponent } from './provision-page/provision-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
@@ -41,6 +42,8 @@ const routes: Routes = [
   {path: 'support', component:SupportPageComponent},
   {path: 'contact', component:ContactPageComponent},
   {path: 'blog', component:BlogPageComponent},
+  //
+  {path: 'profile', component:ProfileUserComponent},
 
 ];
 

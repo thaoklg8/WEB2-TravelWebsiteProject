@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row row-menu1">
             <div class="col-8 ul-menu">
-                <div class="d-flex text-uppercase align-middle text-a-white">
+                <div class="d-flex text-uppercase align-middle text-light">
                     <div class="p-2 m-2 flex-fill text-center">
                         <a routerLink="/home" routerLinkActive="active"><img src="assets/img/logo.png" style="height: 40px;" alt=""></a>
                     </div>
@@ -11,16 +11,26 @@
                     <div class="p-2 m-2 flex-fill text-center"><a routerLink="/tour">Tour</a></div>
                     <div class="p-2 m-2 flex-fill text-center"><a routerLink="/review">Review</a></div>
                     <div class="p-2 m-2 flex-fill text-center"><a routerLink="/aboutus">About us</a></div>
-
                 </div>
             </div>
-            <div class="col-4 ul-login" id="login">
-                <div class="d-flex text-uppercase align-middle text-a-white" id="signin">
-                    <div class="p-2 m-2 flex-fill text-center mr-3"><a routerLink="/register"><span class="glyphicon glyphicon-list-alt"></span> Register</a></div>
-                    <div class="p-2 m-2 flex-fill text-center mr-3" ><a routerLink="/signinEmail"><span class="glyphicon glyphicon-user"></span> Sign in</a></div>
+            <div class="col-4 ul-login" id="login" *ngIf="u=='0'">
+                <div class="d-flex text-uppercase align-middle text-light" id="signin">
+                    <div class="p-2 m-2 flex-fill text-center mr-3" routerLink="/register"><span class="glyphicon glyphicon-list-alt"></span> Register</div>
+                    <div class="p-2 m-2 flex-fill text-center mr-3" routerLink="/signinEmail"><span class="glyphicon glyphicon-user"></span>Sign in</div>
+                </div>
+            </div>
+            <div class="col-4 ul-login" id="logout" *ngIf="u!='0'">
+                <div class="d-flex align-middle text-light">
+                    <div class="p-2 m-2 flex-fill text-center mr-3" routerLink="/profile"><span class="glyphicon glyphicon-list-alt"></span> {{user.Name}}</div>
+                    <div class="p-2 m-2 flex-fill text-center mr-3"> <a href="http://localhost:4200/signinEmail" routerLink="/signinEmail" (click)="reset()"><span class="glyphicon glyphicon-user"></span> Sign out</a></div>
+                    <!-- <div class="p-2 m-2 flex-fill text-center mr-3" routerLink="/signinEmail" onclick="if(document.getElementById('login').style.display=='none')
+                    {document.getElementById('login').style.display='block';}
+                else
+                    {document.getElementById('logout').style.display='none'}"><span class="glyphicon glyphicon-user"></span> Sign out</div> -->
                 </div>
             </div>
         </div>
+
         <!-- menu2 -->
         <div class="row-menu2">
             <div class="row">
@@ -46,7 +56,7 @@
             <li><a routerLink="/review">Review</a></li>
             <li><a routerLink="/aboutus">About us</a></li>
             <li><a routerLink="/register">Register</a></li>
-            <li><a routerLink="/signinPhone">Sign in</a></li>
+            <li><a routerLink="/signinEmail">Sign in</a></li>
         </ul>
     </div>
 </div>

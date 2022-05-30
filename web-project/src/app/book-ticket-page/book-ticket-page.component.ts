@@ -64,7 +64,8 @@ var a = parseInt(num1)
 var b=parseInt(num2)
 this.num=(a+b);
 this.total =(a+(b/2))*this.tour.Price
-console.log(this.total)
+console.log(this.total);
+alert("Đặt vé thành công!")
 return this.total;
   }
   // get Name(){

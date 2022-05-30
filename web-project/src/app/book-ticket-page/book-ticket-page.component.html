@@ -1,7 +1,7 @@
 <div class="book_page page">
     <div id="page__menu"></div>
 
-    <form action="" method="get">
+    <form action="" method="get" #bookForm>
         <div class="img_slidego">
             <img src="assets/img/imgheader.jpg" alt="">
         </div>
@@ -53,7 +53,7 @@
 
                     <div class="col-lg-4">
                         <div class="input-group w-75">
-                            <div class="input-title">Số lượng người lớn
+                            <div class="input-title">Số lượng người lớn<span class="text-danger">*</span>
                                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/9/9c6f6176aba4da5748d57b769726d76e.svg" style="margin-right: 12px;">
                             </div>
                             <input type="number" value=0 class="input-text" #num1>
@@ -62,7 +62,7 @@
 
                     <div class="col-lg-4">
                         <div class="input-group w-75">
-                            <div class="input-title">Số lượng trẻ em (50%)
+                            <div class="input-title">Số lượng trẻ em (50%)<span class="text-danger">*</span>
                                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/2/24c71ea8045b900d0eb06168c3cc8cf8.svg" style="margin-right: 12px;">
                             </div>
                             <input type="number" value=0 class="input-text" #num2>
@@ -93,20 +93,20 @@
                     <p class="title_upperCase">THÔNG TIN ĐẶT VÉ CỦA KHÁCH HÀNG</p>
                     <form>
                         <div class="flex_row">
-                            <label class="flex-label" for="name">Họ và tên <span>*</span></label>
-                            <input class="flex-input input-text" type="text" id="name" name="name" required="" spellcheck="false" value={{user.Name}}>
+                            <label class="flex-label" for="name">Họ và tên </label>
+                            <input class="flex-input input-text" type="text" id="name" readonly name="name" required="" spellcheck="false" value={{user.Name}}>
                         </div>
                         <div class="flex_row">
-                            <label class="flex-label" for="email">Email  <span>*</span></label>
-                            <input class="flex-input input-text" type="text" id="email" name="email" value={{user.Email}} required>
+                            <label class="flex-label" for="email">Email  </label>
+                            <input class="flex-input input-text" type="text" id="email" readonly name="email" value={{user.Email}} required>
                         </div>
                         <div class="flex_row">
-                            <label class="flex-label" for="phone">Điện thoại <span>*</span></label>
-                            <input class="flex-input input-text" type="text" id="phone" name="phone" value={{user.Phone}} required>
+                            <label class="flex-label" for="phone">Điện thoại </label>
+                            <input class="flex-input input-text" type="text" id="phone" readonly name="phone" value={{user.Phone}} required>
                         </div>
                         <div class="flex_row">
-                            <label class="flex-label" for="number">Số lượng <span>*</span></label>
-                            <input class="flex-input input-text" type="text" id="number_book" value="{{num}}" required>
+                            <label class="flex-label" for="number">Số lượng </label>
+                            <input class="flex-input input-text" type="text" id="number_book" readonly value="{{num}}" required>
                             <input class="flex-input input-text" type="text" id="place_book" name="place" readonly value={{tour.Destination}}>
                         </div>
                         <div class="flex_row">

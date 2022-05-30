@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-router.get('/', function(req, res) {
-        res.send("OK..");
-    })
-    //import models
+//import models
 const User = require('../models/User')
 const Tour = require('../models/Tour')
 const Review = require('../models/Review')
 const Comment = require('../models/Comment')
+
+router.get('/', function(req, res) {
+    res.send("OK..");
+})
+
 
 // get all tour
 router.get('/tours', function(req, res) {
@@ -128,7 +130,11 @@ router.post('/user/user', async function(req, res) {
         Phone: req.body.Phone,
         Password: req.body.Password,
         Role: req.body.Role,
-        Image: req.body.Image
+        Image: req.body.Image,
+        Location: req.body.Location,
+        Gender: req.body.Gender,
+        DOB: req.body.DOB,
+        Aboutme: req.body.Aboutme,
     })
     try {
         p = await user.save();
@@ -149,7 +155,11 @@ router.patch("/user/:userId", async(req, res) => {
                     Phone: req.body.Phone,
                     Password: req.body.Password,
                     Role: req.body.Role,
-                    Image: req.body.Image
+                    Image: req.body.Image,
+                    Location: req.body.Location,
+                    Gender: req.body.Gender,
+                    DOB: req.body.DOB,
+                    Aboutme: req.body.Aboutme,
                 }
             })
             // p = await user.save();

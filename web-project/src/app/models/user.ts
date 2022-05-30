@@ -7,6 +7,10 @@ export class User{
     Password:string;
     Image:string;
     Role:string;
+    Aboutme:string;
+    Location:string;
+    Gender:string;
+    DOB:string;
     constructor(){
         this._id=null;
         this.Id="";
@@ -16,6 +20,10 @@ export class User{
         this.Password="";
         this.Image="1";
         this.Role="1";
+        this.Aboutme='';
+        this.Location="";
+        this.Gender="";
+        this.DOB="";
     }
 
 }

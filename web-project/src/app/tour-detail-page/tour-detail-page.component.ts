@@ -12,11 +12,14 @@ export class TourDetailPageComponent implements OnInit {
   tour: Tour = new Tour();
     errorMessage: String = ""
     id: any
+    u:any;
     private _toast: any;
       constructor(private _service:MyserviceService) { }
       ngOnInit(): void {
         this.id = localStorage.getItem('_id')
         this.getTourById()
+        this.u=localStorage.getItem('u')
+    console.log("u: "+this.u)
       }
       getTourById(){
         this._service.getTourById(this.id).subscribe({
