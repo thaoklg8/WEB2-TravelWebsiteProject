@@ -27,6 +27,7 @@ import { SecurityPageComponent } from './security-page/security-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { SupportPageComponent } from './support-page/support-page.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
+import { ProfileUserComponent } from './profile-user/profile-user.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { BlogPageComponent } from './blog-page/blog-page.component';
     SecurityPageComponent,
     ContactPageComponent,
     SupportPageComponent,
-    BlogPageComponent
+    BlogPageComponent,
+    ProfileUserComponent
   ],
   imports: [
     BrowserModule,
