@@ -1,1 +1,81 @@
-<p>contact-page works!</p>
+<div class="imgheader">
+    <img src="assets/img/contactpage/teamheader.jpg" alt="">
+</div>
+
+<div class="container">
+
+    <div class="row">
+                <div class="col-sm-6 col-bottom">
+                       <!-- <div class="imgheader2" style="text-align: center;">
+                        <img src="assets/img/contactpage/openmail.png" alt="">
+
+                       </div> -->
+                       <div style="text-align: center; margin-bottom: 20px;">
+                           <img src="https://website-assets-fw.freshworks.com/attachments/cjpv3wcq0003llpfzzxodiien-enquiry.svg" alt="">
+                       </div>
+                       <p >Để có phản hồi ngay lập tức, hãy liên hệ cho chúng tôi qua các số điện thoại sau hoặc đặt câu hỏi của bạn thông qua biểu mẫu này.</p>
+                       <div>
+                        <strong>Bộ phận trợ giúp khách hàng: </strong>
+
+                        <br> 
+                        Hồ Chí Minh: 999 888 777 | Đường dây nóng: +1023
+                        <br> 
+                        Hà Nội: 111 222 333 | Đường dây nóng: +3045
+                        <br> 
+                        <br> 
+                        <strong> Email:</strong> sales@eivcompany.com | support@eivcompany.com
+                       </div>
+                </div>
+                <div class="col-sm-6 col-bottom">
+                       <div style="text-align: center; margin-bottom: 20px;">
+                           <img src="https://website-assets-fw.freshworks.com/attachments/cjpv3wcqc004ulufzissvblbw-support.svg" alt="">
+                       </div>
+
+                       <div class="form__option--re container-fluid border border-dark">
+                        <form [formGroup]="userForm" (ngSubmit)="submitData(userForm)" class="form">
+                            <p class="h3 title active text-uppercase text-center fw-bold">Hãy liên hệ với chúng tôi</p>
+                            <input type="hidden" name="_id">
+                            <div class="mb-3">
+                                <label class="form-label" for="name">Tên<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" placeholder="Nhập tên" formControlName="name" [class.is-invalid]="Name.invalid &&Name.touched" [(ngModel)]="user.Name">
+                                <div *ngIf="Name.invalid && Name.touched">
+                                    <small class="text-danger" *ngIf="Name.errors?.['required']">Tên không được để trống</small>
+                                    <small class="text-danger" *ngIf="Name.errors?.['minlength']">Tên phải có tối thiểu 2 ký tự</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="email">Email<span class="text-danger">*</span></label>
+                                <input type="email" id="email" [email]="true" class="form-control" placeholder="email@gmail.com" formControlName="email" [class.is-invalid]="Email.invalid && Email.touched" [(ngModel)]="user.Email">
+                                <div *ngIf="Email.invalid && Email.touched">
+                                    <small class="text-danger" *ngIf="Email.errors?.['required']">Bạn chưa nhập email</small>
+                                    <small class="text-danger" *ngIf="Email.errors?.['email']">Email không hợp lệ</small>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="phone">Số điện thoại<span class="text-danger">*</span></label>
+                                <input type="text" id="phone" name="phone" class="form-control" placeholder="0xxxxxxxxx" formControlName="phone" [class.is-invalid]="Phone.invalid && Phone.touched" [(ngModel)]="user.Phone">
+                                <div *ngIf="Phone.invalid && Phone.touched">
+                                    <small class="text-danger" *ngIf="Phone.errors?.['required']">Bạn chưa nhập Số điện thoại</small>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="question">Thông tin cần hỗ trợ<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="question" placeholder="Nhập thông tin vào đây" formControlName="question" [class.is-invalid]="Question.invalid &&Question.touched" >
+                                <div *ngIf="Question.invalid &&Question.touched">
+                                    <small class="text-danger" *ngIf="Question.errors?.['required']">Thông tin không được để trống</small>
+                                    <small class="text-danger" *ngIf="Question.errors?.['minlength']">Thông tin phải có tối thiểu 20 ký tự</small>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="mb-4 text-center">
+                                <button class="btn btn-primary fw-bold bg-button" type="submit">Gửi thông tin</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+       </div>    
+   </div>
+   <app-footer></app-footer>

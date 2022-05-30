@@ -1,0 +1,59 @@
+.imgheader img{
+    width: 100%;
+    height: 100%;
+}
+
+.imgheader2 img {
+    width: 30%;
+    height: 100%;
+
+}
+.col-bottom {
+    margin-bottom: 20px;
+}
+.form__option--re{
+    width: 450px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.bg-color{
+    background-color: #CAE0F3;
+}
+
+.btn{
+    background-color: linear-gradient(0, #f29134, #f7c65d);
+}
+
+.bg-button{
+    background-color: #f29134;
+}
+
+.btn:hover {
+    background-image: linear-gradient(0, #f29134, #f29134);
+}
+
+a{
+    color: #041470;
+}
+
+.img-size-logo {
+    width: 50px;
+    height: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+    .form__option--re {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .form__option--re {
+        width: 100%;
+        border: none;
+    }
+    .form .h3 {
+        font-size: 12px;
+    }
+}
