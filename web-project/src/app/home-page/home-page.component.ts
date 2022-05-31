@@ -14,7 +14,7 @@ errorMessage: String = ""
 
   ngOnInit(): void {
     this.getAllTours();
-    localStorage.getItem("_id")
+    localStorage.getItem("IdTour")
   }
 
   getAllTours(){
@@ -25,7 +25,7 @@ errorMessage: String = ""
   }
   detail(id:string){
     localStorage.setItem("IdTour",id);
-    console.log("_id Tour: "+localStorage.getItem('_id'))
+    console.log("_id Tour: "+localStorage.getItem('IdTour'))
   }
   search(name:string){
     console.log(name)

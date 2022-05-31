@@ -16,7 +16,7 @@ export class TourDetailPageComponent implements OnInit {
     private _toast: any;
       constructor(private _service:MyserviceService) { }
       ngOnInit(): void {
-        this.id = localStorage.getItem('_id')
+        this.id = localStorage.getItem('IdTour')
         this.getTourById()
         this.u=localStorage.getItem('u')
     console.log("u: "+this.u)
