@@ -47,6 +47,9 @@ export class SigninEmailPageComponent implements OnInit {
         console.log("Id User: "+localStorage.getItem('IdUser'))
         if(localStorage.getItem('Role') =='1'){
           this._router.navigate(['/admin'])
+          .then(() => {
+            window.location.reload();
+          })
         }else{
         this._router.navigate(['/home'])
         .then(() => {

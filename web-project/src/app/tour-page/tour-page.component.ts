@@ -11,7 +11,7 @@ export class TourPageComponent implements OnInit {
 
   tours: any;
   errorMessage: String = ""
-    constructor(private _service:MyserviceService) { }
+    constructor(private _service:MyserviceService,private_router:Router) { }
   
     ngOnInit(): void {
       this.getAllTours();

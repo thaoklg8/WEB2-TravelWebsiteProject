@@ -43,14 +43,15 @@
             <h3 class="text-center">Bảng danh sách tài khoản của EIV</h3>
             <table class="table table-bordered">
                 <thead class="thead-light">
-                <tr>
-                    <th>Id</th>
-                    <th>Tên</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
-                    <th>Hình ảnh</th>
-                    <th>Vai trò</th>
-                </tr></thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Hình ảnh</th>
+                        <th>Vai trò</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr *ngFor="let u of users">
                         <td class="p-1">{{u.Id}}</td>

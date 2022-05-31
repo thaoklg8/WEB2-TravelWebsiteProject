@@ -38,7 +38,7 @@ export class ToursAdminComponent implements OnInit {
 
     submitData(form:NgForm){
       console.log("Form data ", form.value)
-      // this.tour.Image=this.file
+      // this.tour.Image=this.file.name
       console.log("Model: ",this.tour)
       if(this.tour._id==null){ //insert
         if(this.tour.Id==""){
@@ -53,38 +53,36 @@ export class ToursAdminComponent implements OnInit {
           alert('Mô tả không được để trống')}
         else{if(this.tour.Transportation ==""){
           alert('Phương tiện vận chuyển không được để trống')}
-        else{ if(this.tour.Image==""){
-          alert('Hình ảnh không được bỏ trống')}
+        // else{ if(this.tour.Image==""){
+        //   alert('Hình ảnh không được bỏ trống')}
         else{ if(this.tour.Time ==""){
         alert("Thời gian không được để trống")}
         alert('OK')
-        // this._service.postTour(this.tour).subscribe(res=>{
-        //   let resData = JSON.parse(JSON.stringify(res));
-        //   if(resData.message ==="success"){
-        //     alert("Insert Success!")
-        //     this._toast.success("Inserted successfully!","SUCCESS")
-        //     this.onReset();
-        //     this.getAllTours();
-        //   }
-        //   else{
-        //     alert("Fail!")
-        //   }
-        //    })
-        this._service.uploadData(form).subscribe({
-          next: res => {
-            console.log("success")
-            alert('Đã đăng bài thành công')
-            this._router.navigate(['/review'])
-          },
-          error: err => {
-            console.log("Error: ", err.message)
-            alert('Đăng bài thất bại: ' + err.message )
+        this._service.postTour(this.tour).subscribe(res=>{
+          let resData = JSON.parse(JSON.stringify(res));
+          if(resData.message ==="success"){
+            alert("Insert Success!")
+            this._toast.success("Inserted successfully!","SUCCESS")
+            this.onReset();
+            this.getAllTours();
           }
+          else{
+            alert("Fail!")
+          }
+           })
+        // this._service.upload(form).subscribe({
+        //   next: res => {
+        //     console.log("success")
+        //     this._router.navigate(['/adminTour'])
+        //   },
+        //   error: err => {
+        //     console.log("Error 1: ", err.message)
+        //   }
           
           
-        })
+        // })
           }}}}}} }
-      }
+      // }
       else{ //update
         if(this.tour.Id==""){
           alert('Id không được để trống')
@@ -103,31 +101,29 @@ export class ToursAdminComponent implements OnInit {
           alert('Hình ảnh không được bỏ trống')}
         else{ if(this.tour.Time ==""){
           alert("Thời gian không được để trống")}
-          // this._service.updateTour(this.tour._id, this.tour).subscribe(res=>{
-          //   let resData = JSON.parse(JSON.stringify(res));
-          //   if(resData.message ==="success"){
-          //     alert("Update successfully!")
-          //     this._toast.info("Updated successfully!","SUCCESS",{timeOut:3000})
-          //     this.onReset();
-          //     this.getAllTours();
-          //   }
-          //   else{
-          //     alert(resData.message)
+          this._service.updateTour(this.tour._id, this.tour).subscribe(res=>{
+            let resData = JSON.parse(JSON.stringify(res));
+            if(resData.message ==="success"){
+              alert("Update successfully!")
+              this._toast.info("Updated successfully!","SUCCESS",{timeOut:3000})
+              this.onReset();
+              this.getAllTours();
+            }
+            else{
+              alert(resData.message)
+            }
+          })
+          // this._service.uploadData(form).subscribe({
+          //   next: res => {
+          //     console.log("success")
+          //     alert('Đã đăng bài thành công')
+          //     this._router.navigate(['/review'])
+          //   },
+          //   error: err => {
+          //     console.log("Error: ", err.message)
+          //     alert('Đăng bài thất bại: ' + err.message )
           //   }
           // })
-          this._service.uploadData(form).subscribe({
-            next: res => {
-              console.log("success")
-              alert('Đã đăng bài thành công')
-              this._router.navigate(['/review'])
-            },
-            error: err => {
-              console.log("Error: ", err.message)
-              alert('Đăng bài thất bại: ' + err.message )
-            }
-            
-            
-          })
       }}}}}}}}
       this.getAllTours();
     }

@@ -5,6 +5,11 @@
     color: red;
 }
 
+.btn:hover {
+    color: rgb(222, 165, 57);
+    font-weight: 600;
+}
+
 
 /* dung cho tour */
 

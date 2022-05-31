@@ -126,6 +126,15 @@ uploadData(data: any){
   // return this._http.post(`${baseUrl}/review/upload/post`, data)
   // .subscribe(res => alert('Done'));
 }
+//post tour
+upload(data: any){
+  return this._http.post(`${baseUrl}/tour/upload/post`, data).pipe(
+    retry(2),
+    catchError(this.handleError)
+  )
+  // return this._http.post(`${baseUrl}/review/upload/post`, data)
+  // .subscribe(res => alert('Done'));
+}
 
 
 

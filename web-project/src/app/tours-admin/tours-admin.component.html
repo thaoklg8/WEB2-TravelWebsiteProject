@@ -44,14 +44,14 @@
                 <label for="time" class="control-label col-sm-2">Thời gian</label>
                 <input type="text" id="time" class="col-sm-10" name="Time" [(ngModel)]="tour.Time">
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="image" class="control-label col-sm-2">Hình ảnh</label>
                 <input type="text" id="image" class="col-sm-10" name="Image" [(ngModel)]="tour.Image">
-            </div> -->
-            <div class="mb-3">
-                <label for="post-img">Đăng ảnh <span style="color: red;">*</span></label>
-                <input type="file" name="post-img" class="form-control" [(ngModel)]="tour.Image" (change)="onSelectFile($event)">
             </div>
+            <!-- <div class="mb-3">
+                <label for="post-img">Đăng ảnh <span style="color: red;">*</span></label>
+                <input type="file" name="Image" class="form-control" (change)="onSelectFile($event)">
+            </div> -->
             <div class="d-flex btn container">
                 <button type="submit" class="m-4 btn-book btn btn-warning btn-block fw-bold">Cập nhật</button>
                 <button type="reset" class="m-4 btn-book btn btn-warning btn-block fw-bold">Thiết lập lại</button>
@@ -92,7 +92,7 @@
                 </tr>
             </table>
         </div>
-    </div>    
+    </div>
 </div>
 
 <!-- footer -->
