@@ -51,10 +51,13 @@ reviews:any;
     this._service.uploadData(formData).subscribe({
       next: res => {
         console.log("Success!")
+        // alert('Đã đăng bài thành công')
       },
       error: err => {
         console.log("Error: ", err.message)
+        // alert('Đăng bài thất bại')
       }
+      
       
     })
   }

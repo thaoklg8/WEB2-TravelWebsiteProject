@@ -2,63 +2,56 @@
 <!-- <app-menu></app-menu> -->
 <!-- body -->
 <div class="container mt-5 mb-5 align-items-end justify-content-center form-horizontal">
-
-    <!-- <div class="control-label col-sm-2" style="min-width:300px">
-            <div class="card mt-3 position-relative">
-
-            </div>
-        </div> -->
-        <form #tourForm="ngForm" (ngSubmit)="submitData(tourForm)">
-            <div class="form-group" hidden>
-                <label class="control-label col-sm-2">_Id</label>
-                <input type="text" id="_id" class="col-sm-10" name="_id" [(ngModel)]="tour._id">
-            </div>
-            <div class="form-group">
-                <label for="id" class="control-label col-sm-2">Id</label>
-                <input type="text" id="id" class="col-sm-10" name="Id" [(ngModel)]="tour.Id">
-            </div>
-            <div class="form-group">
-                <label for="destination" class="control-label col-sm-2">Điạ điểm</label>
-                <input type="text" id="destination" class="col-sm-10" name="Destination" [(ngModel)]="tour.Destination">
-            </div>
-            <div class="form-group">
-                <label for="province" class="control-label col-sm-2">Tỉnh / Thành phố</label>
-                <input type="text" id="province" class="col-sm-10" name="Province" [(ngModel)]="tour.Province">
-            </div>
-            <div class="form-group">
-                <label for="price" class="control-label col-sm-2">Giá</label>
-                <input type="text" id="price" class="col-sm-10" name="Price" [(ngModel)]="tour.Price">
-            </div>
-            <div class="form-group">
-                <label for="content" class="control-label col-sm-2">Thông tin chung</label>
-                <input type="text" id="content" class="col-sm-10" name="Content" [(ngModel)]="tour.Content">
-            </div>
-            <div class="form-group">
-                <label for="description" class="control-label col-sm-2">Mô tả</label>
-                <input type="text" id="description" class="col-sm-10" name="Description" [(ngModel)]="tour.Description">
-            </div>
-            <div class="form-group">
-                <label for="transportation" class="control-label col-sm-2">Phương tiện vận chuyển </label>
-                <input type="text" id="transportation" class="col-sm-10" name="Transportation" [(ngModel)]="tour.Transportation">
-            </div>
-            <div class="form-group">
-                <label for="program" class="control-label col-sm-2">Lịch trình</label>
-                <input type="text" id="program" class="col-sm-10" name="Program" [(ngModel)]="tour.Program">
-            </div>
-            <div class="form-group">
-                <label for="time" class="control-label col-sm-2">Thời gian</label>
-                <input type="text" id="time" class="col-sm-10" name="Time" [(ngModel)]="tour.Time">
-            </div>
-            <div class="form-group">
-                <label for="image" class="control-label col-sm-2">Hình ảnh</label>
-                <input type="text" id="image" class="col-sm-10" name="Image" [(ngModel)]="tour.Image">
-            </div>
-            <div class="d-flex btn container">
-                <button type="submit" class="m-4 btn-book btn btn-warning btn-block fw-bold">Cập nhật</button>
-                <button type="reset" class="m-4 btn-book btn btn-warning btn-block fw-bold">Thiết lập lại</button>
-            </div>
-        </form>
-
+    <form #tourForm="ngForm" (ngSubmit)="submitData(tourForm)">
+        <div class="form-group" hidden>
+            <label class="control-label col-sm-2">_Id</label>
+            <input type="text" id="_id" class="col-sm-10" name="_id" [(ngModel)]="tour._id">
+        </div>
+        <div class="form-group">
+            <label for="id" class="control-label col-sm-2">Id</label>
+            <input type="text" id="id" class="col-sm-10" name="Id" [(ngModel)]="tour.Id">
+        </div>
+        <div class="form-group">
+            <label for="destination" class="control-label col-sm-2">Điạ điểm</label>
+            <input type="text" id="destination" class="col-sm-10" name="Destination" [(ngModel)]="tour.Destination">
+        </div>
+        <div class="form-group">
+            <label for="province" class="control-label col-sm-2">Tỉnh / Thành phố</label>
+            <input type="text" id="province" class="col-sm-10" name="Province" [(ngModel)]="tour.Province">
+        </div>
+        <div class="form-group">
+            <label for="price" class="control-label col-sm-2">Giá</label>
+            <input type="text" id="price" class="col-sm-10" name="Price" [(ngModel)]="tour.Price">
+        </div>
+        <div class="form-group">
+            <label for="content" class="control-label col-sm-2">Thông tin chung</label>
+            <input type="text" id="content" class="col-sm-10" name="Content" [(ngModel)]="tour.Content">
+        </div>
+        <div class="form-group">
+            <label for="description" class="control-label col-sm-2">Mô tả</label>
+            <input type="text" id="description" class="col-sm-10" name="Description" [(ngModel)]="tour.Description">
+        </div>
+        <div class="form-group">
+            <label for="transportation" class="control-label col-sm-2">Phương tiện vận chuyển </label>
+            <input type="text" id="transportation" class="col-sm-10" name="Transportation" [(ngModel)]="tour.Transportation">
+        </div>
+        <div class="form-group">
+            <label for="program" class="control-label col-sm-2">Lịch trình</label>
+            <input type="text" id="program" class="col-sm-10" name="Program" [(ngModel)]="tour.Program">
+        </div>
+        <div class="form-group">
+            <label for="time" class="control-label col-sm-2">Thời gian</label>
+            <input type="text" id="time" class="col-sm-10" name="Time" [(ngModel)]="tour.Time">
+        </div>
+        <div class="form-group">
+            <label for="image" class="control-label col-sm-2">Hình ảnh</label>
+            <input type="text" id="image" class="col-sm-10" name="Image" [(ngModel)]="tour.Image">
+        </div>
+        <div class="d-flex btn container">
+            <button type="submit" class="m-4 btn-book btn btn-warning btn-block fw-bold">Cập nhật</button>
+            <button type="reset" class="m-4 btn-book btn btn-warning btn-block fw-bold">Thiết lập lại</button>
+        </div>
+    </form>
 </div>
 <div class="content container-fluid align-items-end justify-content-center" style="font-size: 10px;">
     <div class="table-responsive">

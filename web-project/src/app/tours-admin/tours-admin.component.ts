@@ -32,6 +32,23 @@ tour: Tour = new Tour();
       console.log("Form data ", form.value)
       console.log("Model: ",this.tour)
       if(this.tour._id==null){ //insert
+        if(this.tour.Id==""){
+          alert('Id không được để trống')}
+        else{if(this.tour.Description ==""){
+          alert('Địa điểm không được để trống')}
+        else{ if(this.tour.Province==""){
+          alert('Tỉnh / Thành phố không được để trống')}
+        else{ if(this.tour.Content ==""){
+          alert("Thông tin chung không được để trống")}
+        else{ if(this.tour.Description==""){
+          alert('Mô tả không được để trống')}
+        else{if(this.tour.Transportation ==""){
+          alert('Phương tiện vận chuyển không được để trống')}
+        else{ if(this.tour.Image==""){
+          alert('Hình ảnh không được bỏ trống')}
+        else{ if(this.tour.Time ==""){
+        alert("Thời gian không được để trống")}
+        alert('OK')
         this._service.postTour(this.tour).subscribe(res=>{
           let resData = JSON.parse(JSON.stringify(res));
           if(resData.message ==="success"){
@@ -43,9 +60,26 @@ tour: Tour = new Tour();
           else{
             alert("Fail!")
           }
-        })
+           })}}}}}} }
       }
       else{ //update
+        if(this.tour.Id==""){
+          alert('Id không được để trống')
+        }else{
+        if(this.tour.Description ==""){
+          alert('Địa điểm không được để trống')}
+        else{ if(this.tour.Province==""){
+          alert('Tỉnh / Thành phố không được để trống')}
+        else{ if(this.tour.Content ==""){
+          alert("Thông tin chung không được để trống")}
+        else{ if(this.tour.Description==""){
+          alert('Mô tả không được để trống')}
+        else{if(this.tour.Transportation ==""){
+          alert('Phương tiện vận chuyển không được để trống')}
+        else{ if(this.tour.Image==""){
+          alert('Hình ảnh không được bỏ trống')}
+        else{ if(this.tour.Time ==""){
+          alert("Thời gian không được để trống")}
           this._service.updateTour(this.tour._id, this.tour).subscribe(res=>{
             let resData = JSON.parse(JSON.stringify(res));
             if(resData.message ==="success"){
@@ -58,7 +92,7 @@ tour: Tour = new Tour();
               alert(resData.message)
             }
           })
-      }
+      }}}}}}}}
       this.getAllTours();
     }
     onEdit(data:Tour){

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { passwordValidator } from 'validators/check.validators';
 import { User } from '../models/user';
 import { MyserviceService } from '../myservice.service';
 

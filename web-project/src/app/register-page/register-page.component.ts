@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { passwordValidator } from 'validators/check.validators';
 import { User } from '../models/user';
 import { MyserviceService } from '../myservice.service';
 
@@ -28,8 +27,7 @@ export class RegisterPageComponent implements OnInit {
       pwd: ['', [Validators.required]],
       confirmpwd: [''],
       agree: ['', [Validators.required]]
-    }, 
-    {Validators:[passwordValidator]})
+    })
     }
   
     submitData(form:NgForm){
@@ -41,15 +39,8 @@ export class RegisterPageComponent implements OnInit {
           if(resData.message ==="success"){
             // alert("Insert Success!")
             this._toast.success("Inserted successfully!","SUCCESS")
-            this._router.navigate(['/home']);
+            this._router.navigate(['/signinEmail']);
             localStorage.setItem('IdName',form.value.name)
-
-            var target=  document.getElementById("login")!;
-          target.innerHTML += "<div class='d-flex text-uppercase align-middle text-a-white text-light'>"
-                    + "<div class='p-2 m-2 flex-fill text-center mr-3'><a class='text-light' href='#'>"+localStorage.getItem('IdName')+"</a></div>"
-                    +"<div class='p-2 m-2 flex-fill text-center mr-3'><a class='text-light' href='#' (click)='reset()'> Sign out</a></div>" +"</div>";
-          var target1= document.getElementById("signin")!;
-          target1.innerHTML = "";
           }
           else{
             alert("Fail!")
