@@ -2,6 +2,7 @@ export class Review{
     _id:any;
     Id: string;
     UserId: string;
+    UserName: string;
     Like:number;
     Date:string;
     Image:string;
@@ -15,6 +16,7 @@ export class Review{
         this.Like=0;
         this.Date='2022-11-02';
         this.Image="";
+        this.UserName="";
         this.Time="";
         this.Content="";
         this.thumbPath=""

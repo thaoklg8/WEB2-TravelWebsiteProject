@@ -12,6 +12,9 @@ const baseUrl ="http://localhost:3000";
   providedIn: 'root'
 })
 export class MyserviceService {
+  httpOptions = {
+    'Content-type': 'application/json'
+  }
   reviews:any;
   comments:any;
   item:any;
@@ -120,6 +123,8 @@ uploadData(data: any){
     retry(2),
     catchError(this.handleError)
   )
+  // return this._http.post(`${baseUrl}/review/upload/post`, data)
+  // .subscribe(res => alert('Done'));
 }
 
 

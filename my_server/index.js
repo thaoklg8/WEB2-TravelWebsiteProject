@@ -24,6 +24,9 @@ var upload = multer({
 const Review = require('./models/Review')
 app.post("/review/upload/post", (req, res) => {
     upload(req, res, async(err) => {
+        res.header("Access-Control-Allow-Origin", "*");
+        // res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        // next()
         if (err) {
             res.json({ message: err.message })
         } else {

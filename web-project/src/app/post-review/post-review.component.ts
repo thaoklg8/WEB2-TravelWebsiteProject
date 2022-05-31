@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MyserviceService } from '../myservice.service';
 
 
@@ -19,17 +20,16 @@ reviews:any;
     "file":[''],
     "content":['',[Validators.required,Validators.minLength(3)]],
   })
-  constructor(private _formBuilder: FormBuilder,private _service:MyserviceService,private _http:HttpClientModule,) { }
+  constructor( private _router: Router ,private _formBuilder: FormBuilder,private _service:MyserviceService,private _http:HttpClientModule,) { }
 
   ngOnInit(): void {
-    this.getData()
+    // this.getData()
     this.name = localStorage.getItem('IdName')
   }
 
   onSelectFile(event:any){
     if(event.target.files.length>0){
       this.file = event.target.files[0];
-
     }else{
       this.file = null;
     }
@@ -50,16 +50,18 @@ reviews:any;
     //send data to server
     this._service.uploadData(formData).subscribe({
       next: res => {
-        console.log("Success!")
-        // alert('Đã đăng bài thành công')
+        console.log("success")
+        alert('Đã đăng bài thành công')
+        // this._router.navigate(['/review'])
       },
       error: err => {
         console.log("Error: ", err.message)
-        // alert('Đăng bài thất bại')
+        alert('Đăng bài thất bại: ' + err.message )
       }
       
       
     })
+    // alert('Đã đăng bài thành công')
   }
   
   get nameInput(){
@@ -68,13 +70,10 @@ reviews:any;
   get contentInput(){
     return this.testForm.controls["content"];
   }
-
-
-
-  getData(){
-    this._service.getAllReviews().subscribe({
-      next: data =>this.reviews = data,
-      error: err=> console.log(err)
-    })
-  }
+  // getData(){
+  //   this._service.getAllReviews().subscribe({
+  //     next: data =>this.reviews = data,
+  //     error: err=> console.log(err)
+  //   })
+  // }
 }
