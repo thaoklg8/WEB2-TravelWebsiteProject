@@ -52,7 +52,6 @@
                             <small class="text-danger" *ngIf="Phone.errors?.['required']">Bạn chưa nhập Số điện thoại</small>
                         </div>
                     </div>
-
                     <div class="mb-3">
                         <label class="form-label" for="question">Thông tin cần hỗ trợ<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="question" placeholder="Nhập thông tin vào đây" formControlName="question" [class.is-invalid]="Question.invalid &&Question.touched">
@@ -61,7 +60,6 @@
                             <small class="text-danger" *ngIf="Question.errors?.['minlength']">Thông tin phải có tối thiểu 20 ký tự</small>
                         </div>
                     </div>
-
 
                     <div class="mb-4 text-center">
                         <button [disabled]="userForm.invalid" class="btn btn-primary fw-bold bg-button" type="submit">Gửi thông tin</button>

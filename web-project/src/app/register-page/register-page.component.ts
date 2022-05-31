@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user';
 import { MyserviceService } from '../myservice.service';
-
-
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',

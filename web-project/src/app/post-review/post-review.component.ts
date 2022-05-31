@@ -52,7 +52,7 @@ reviews:any;
       next: res => {
         console.log("success")
         alert('Đã đăng bài thành công')
-        // this._router.navigate(['/review'])
+        this._router.navigate(['/review'])
       },
       error: err => {
         console.log("Error: ", err.message)

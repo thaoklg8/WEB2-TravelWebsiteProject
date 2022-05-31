@@ -1,23 +1,7 @@
-.bg-color{
-    background-color: #CAE0F3;
-}
-
-.btn{
-    background-color: linear-gradient(0, #f29134, #f7c65d);
-}
-
-.btn:hover {
-    background-image: linear-gradient(0, #f29134, #f29134);
-}
-
 .form__option--si{
     width: 450px;
     border-radius: 10px;
     background-color: white;
-}
-
-.bg-button{
-    background-color: #f29134;
 }
 
 a{

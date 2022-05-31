@@ -1,70 +1,72 @@
-<!-- menu -->
-<!-- <app-menu></app-menu> -->
-<!-- body -->
-<div class="container mt-5 mb-5 align-items-end justify-content-center form-horizontal">
-
-    <form #FormUser="ngForm" (ngSubmit)="submitData(FormUser)">
-        <div class="form-group" hidden>
-            <label class="control-label col-sm-2">_Id</label>
-            <input type="text" id="_id" class="col-sm-10" name="_id" [(ngModel)]="user._id">
+<div class="page p-5">
+    <div class="text-center">
+        <button class="btn btn-book btn-warning fw-bold" routerLink="/admin">Quay lại trang Admin</button>
+    </div>
+    <div class="container mt-5 mb-5 align-items-end justify-content-center form-horizontal bg-white border">
+        <form #FormUser="ngForm" (ngSubmit)="submitData(FormUser)">
+            <div class="form-group" hidden>
+                <label class="control-label col-sm-2">_Id</label>
+                <input type="text" id="_id" class="col-sm-10" name="_id" [(ngModel)]="user._id">
+            </div>
+            <div class="form-group">
+                <label for="id" class="control-label col-sm-2">Id</label>
+                <input type="text" id="id" class="col-sm-10" name="Id" [(ngModel)]="user.Id">
+            </div>
+            <div class="form-group" id="name1">
+                <label for="name" class="control-label col-sm-2">Tên</label>
+                <div id="name12"><input type="text" id="name" class="col-sm-10" name="Name" [(ngModel)]="user.Name"></div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="control-label col-sm-2">Email</label>
+                <input type="email" id="email" class="col-sm-10" name="Email" [(ngModel)]="user.Email">
+            </div>
+            <div class="form-group">
+                <label for="phone" class="control-label col-sm-2">Số điện thoại</label>
+                <input type="number" id="phone" class="col-sm-10" name="Phone" [(ngModel)]="user.Phone">
+            </div>
+            <div class="form-group">
+                <label for="image" class="control-label col-sm-2">Hình ảnh</label>
+                <input type="text" id="image" class="col-sm-10" name="Image" [(ngModel)]="user.Image">
+            </div>
+            <div class="form-group">
+                <label for="role" class="control-label col-sm-2">Vai trò</label>
+                <input type="text" id="role" class="col-sm-10" name="Role" [(ngModel)]="user.Role">
+            </div>
+            <div class="d-flex btn container">
+                <button type="submit" class="m-4 btn-book btn btn-warning btn-block fw-bold">Cập nhật</button>
+                <button type="reset" class="m-4 btn-book btn btn-warning btn-block fw-bold">Thiết lập lại</button>
+            </div>
+        </form>
+    </div>
+    <div class="content container-fluid align-items-end justify-content-center bg-white" style="font-size: 10px;">
+        <div class="table-responsive">
+            <h3 class="text-center">Bảng danh sách tài khoản của EIV</h3>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Hình ảnh</th>
+                    <th>Vai trò</th>
+                </tr></thead>
+                <tbody>
+                    <tr *ngFor="let u of users">
+                        <td class="p-1">{{u.Id}}</td>
+                        <td class="p-1">{{u.Name}}</td>
+                        <td class="p-1">{{u.Email}}</td>
+                        <td class="p-1">{{u.Phone}}</td>
+                        <td class="p-1">{{u.Image}}</td>
+                        <td class="p-1">{{u.Role}}</td>
+                        <td><button (click)="onEdit(u)"><i class="glyphicon glyphicon-pencil"></i></button></td>
+                        <td><button (click)="onDelete(u._id,FormUser)"><i class="glyphicon glyphicon-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="form-group">
-            <label for="id" class="control-label col-sm-2">Id</label>
-            <input type="text" id="id" class="col-sm-10" name="Id" [(ngModel)]="user.Id">
-        </div>
-        <div class="form-group" id="name1">
-            <label for="name" class="control-label col-sm-2">Tên</label>
-            <div id="name12"><input type="text" id="name" class="col-sm-10" name="Name" [(ngModel)]="user.Name"></div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="control-label col-sm-2">Email</label>
-            <input type="email" id="email" class="col-sm-10" name="Email" [(ngModel)]="user.Email">
-        </div>
-        <div class="form-group">
-            <label for="phone" class="control-label col-sm-2">Số điện thoại</label>
-            <input type="number" id="phone" class="col-sm-10" name="Phone" [(ngModel)]="user.Phone">
-        </div>
-        <div class="form-group">
-            <label for="image" class="control-label col-sm-2">Hình ảnh</label>
-            <input type="text" id="image" class="col-sm-10" name="Image" [(ngModel)]="user.Image">
-        </div>
-        <div class="form-group">
-            <label for="role" class="control-label col-sm-2">Vai trò</label>
-            <input type="text" id="role" class="col-sm-10" name="Role" [(ngModel)]="user.Role">
-        </div>
-        <div class="d-flex btn container">
-            <button type="submit" class="m-4 btn-book btn btn-warning btn-block fw-bold">Cập nhật</button>
-            <button type="reset" class="m-4 btn-book btn btn-warning btn-block fw-bold">Thiết lập lại</button>
-        </div>
-    </form>
-</div>
-<div class="content container-fluid align-items-end justify-content-center" style="font-size: 10px;">
-    <div class="table-responsive">
-        <h3 class="text-center">Bảng danh sách tài khoản của EIV</h3>
-        <table class="table table-bordered">
-            <thead class="thead-light">
-            <tr>
-                <th>Id</th>
-                <th>Tên</th>
-                <th>Email</th>
-                <th>Số điện thoại</th>
-                <th>Hình ảnh</th>
-                <th>Vai trò</th>
-            </tr></thead>
-            <tbody>
-                <tr *ngFor="let u of users">
-                    <td class="p-1">{{u.Id}}</td>
-                    <td class="p-1">{{u.Name}}</td>
-                    <td class="p-1">{{u.Email}}</td>
-                    <td class="p-1">{{u.Phone}}</td>
-                    <td class="p-1">{{u.Image}}</td>
-                    <td class="p-1">{{u.Role}}</td>
-                    <td><button (click)="onEdit(u)"><i class="glyphicon glyphicon-pencil"></i></button></td>
-                    <td><button (click)="onDelete(u._id,FormUser)"><i class="glyphicon glyphicon-trash"></i></button></td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </div>
+
 <!-- footer -->
 <app-footer></app-footer>

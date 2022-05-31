@@ -1,92 +1,99 @@
-<!-- menu -->
-<!-- <app-menu></app-menu> -->
-<!-- body -->
-<div class="container mt-5 mb-5 align-items-end justify-content-center form-horizontal">
-    <form #tourForm="ngForm" (ngSubmit)="submitData(tourForm)">
-        <div class="form-group" hidden>
-            <label class="control-label col-sm-2">_Id</label>
-            <input type="text" id="_id" class="col-sm-10" name="_id" [(ngModel)]="tour._id">
-        </div>
-        <div class="form-group">
-            <label for="id" class="control-label col-sm-2">Id</label>
-            <input type="text" id="id" class="col-sm-10" name="Id" [(ngModel)]="tour.Id">
-        </div>
-        <div class="form-group">
-            <label for="destination" class="control-label col-sm-2">Điạ điểm</label>
-            <input type="text" id="destination" class="col-sm-10" name="Destination" [(ngModel)]="tour.Destination">
-        </div>
-        <div class="form-group">
-            <label for="province" class="control-label col-sm-2">Tỉnh / Thành phố</label>
-            <input type="text" id="province" class="col-sm-10" name="Province" [(ngModel)]="tour.Province">
-        </div>
-        <div class="form-group">
-            <label for="price" class="control-label col-sm-2">Giá</label>
-            <input type="text" id="price" class="col-sm-10" name="Price" [(ngModel)]="tour.Price">
-        </div>
-        <div class="form-group">
-            <label for="content" class="control-label col-sm-2">Thông tin chung</label>
-            <input type="text" id="content" class="col-sm-10" name="Content" [(ngModel)]="tour.Content">
-        </div>
-        <div class="form-group">
-            <label for="description" class="control-label col-sm-2">Mô tả</label>
-            <input type="text" id="description" class="col-sm-10" name="Description" [(ngModel)]="tour.Description">
-        </div>
-        <div class="form-group">
-            <label for="transportation" class="control-label col-sm-2">Phương tiện vận chuyển </label>
-            <input type="text" id="transportation" class="col-sm-10" name="Transportation" [(ngModel)]="tour.Transportation">
-        </div>
-        <div class="form-group">
-            <label for="program" class="control-label col-sm-2">Lịch trình</label>
-            <input type="text" id="program" class="col-sm-10" name="Program" [(ngModel)]="tour.Program">
-        </div>
-        <div class="form-group">
-            <label for="time" class="control-label col-sm-2">Thời gian</label>
-            <input type="text" id="time" class="col-sm-10" name="Time" [(ngModel)]="tour.Time">
-        </div>
-        <div class="form-group">
-            <label for="image" class="control-label col-sm-2">Hình ảnh</label>
-            <input type="text" id="image" class="col-sm-10" name="Image" [(ngModel)]="tour.Image">
-        </div>
-        <div class="d-flex btn container">
-            <button type="submit" class="m-4 btn-book btn btn-warning btn-block fw-bold">Cập nhật</button>
-            <button type="reset" class="m-4 btn-book btn btn-warning btn-block fw-bold">Thiết lập lại</button>
-        </div>
-    </form>
-</div>
-<div class="content container-fluid align-items-end justify-content-center" style="font-size: 10px;">
-    <div class="table-responsive">
-        <h3 class="text-center">Bảng danh sách Tour của EIV</h3>
-        <table class="table table-bordered">
-            <thead class="thead-light">
-                <tr>
-                    <th>Id</th>
-                    <th>Địa điểm</th>
-                    <th>Tỉnh / Thành phố</th>
-                    <th>Giá</th>
-                    <th>Thông tin chung</th>
-                    <th>Mô tả</th>
-                    <th>Phương tiện</th>
-                    <th>Lịch trình</th>
-                    <th>Thời gian</th>
-                    <th>Hình ảnh</th>
-                </tr>
-            </thead>
-            <tr *ngFor="let p of tours">
-                <td class="p-1">{{p.Id}}</td>
-                <td class="p-1">{{p.Destination}}</td>
-                <td class="p-1">{{p.Province}}</td>
-                <td class="p-1">{{p.Price}}</td>
-                <td class="p-1">{{p.Content}}</td>
-                <td class="p-1">{{p.Description}}</td>
-                <td class="p-1">{{p.Transportation }}</td>
-                <td class="p-1">{{p.Program}}</td>
-                <td class="p-1">{{p.Time}}</td>
-                <td class="p-1">{{p.Image}}</td>
-                <td><button (click)="onEdit(p)"><i class="glyphicon glyphicon-pencil"></i></button></td>
-                <td><button (click)="onDelete(p._id,tourForm)"><i class="glyphicon glyphicon-trash"></i></button></td>
-            </tr>
-        </table>
+<div class="page p-5">
+    <div class="text-center">
+        <button class="btn btn-book btn-warning fw-bold" routerLink="/admin">Quay lại trang Admin</button>
     </div>
+    <div class="container mt-5 mb-5 align-items-end justify-content-center form-horizontal border bg-white">
+        <form #tourForm="ngForm" (ngSubmit)="submitData(tourForm)">
+            <div class="form-group" hidden>
+                <label class="control-label col-sm-2">_Id</label>
+                <input type="text" id="_id" class="col-sm-10" name="_id" [(ngModel)]="tour._id">
+            </div>
+            <div class="form-group">
+                <label for="id" class="control-label col-sm-2">Id</label>
+                <input type="text" id="id" class="col-sm-10" name="Id" [(ngModel)]="tour.Id">
+            </div>
+            <div class="form-group">
+                <label for="destination" class="control-label col-sm-2">Điạ điểm</label>
+                <input type="text" id="destination" class="col-sm-10" name="Destination" [(ngModel)]="tour.Destination">
+            </div>
+            <div class="form-group">
+                <label for="province" class="control-label col-sm-2">Tỉnh / Thành phố</label>
+                <input type="text" id="province" class="col-sm-10" name="Province" [(ngModel)]="tour.Province">
+            </div>
+            <div class="form-group">
+                <label for="price" class="control-label col-sm-2">Giá</label>
+                <input type="number" id="price" class="col-sm-10" name="Price" [(ngModel)]="tour.Price">
+            </div>
+            <div class="form-group">
+                <label for="content" class="control-label col-sm-2">Thông tin chung</label>
+                <input type="text" id="content" class="col-sm-10" name="Content" [(ngModel)]="tour.Content">
+            </div>
+            <div class="form-group">
+                <label for="description" class="control-label col-sm-2">Mô tả</label>
+                <input type="text" id="description" class="col-sm-10" name="Description" [(ngModel)]="tour.Description">
+            </div>
+            <div class="form-group">
+                <label for="transportation" class="control-label col-sm-2">Phương tiện vận chuyển </label>
+                <input type="text" id="transportation" class="col-sm-10" name="Transportation" [(ngModel)]="tour.Transportation">
+            </div>
+            <div class="form-group">
+                <label for="program" class="control-label col-sm-2">Lịch trình</label>
+                <input type="text" id="program" class="col-sm-10" name="Program" [(ngModel)]="tour.Program">
+            </div>
+            <div class="form-group">
+                <label for="time" class="control-label col-sm-2">Thời gian</label>
+                <input type="text" id="time" class="col-sm-10" name="Time" [(ngModel)]="tour.Time">
+            </div>
+            <!-- <div class="form-group">
+                <label for="image" class="control-label col-sm-2">Hình ảnh</label>
+                <input type="text" id="image" class="col-sm-10" name="Image" [(ngModel)]="tour.Image">
+            </div> -->
+            <div class="mb-3">
+                <label for="post-img">Đăng ảnh <span style="color: red;">*</span></label>
+                <input type="file" name="post-img" class="form-control" [(ngModel)]="tour.Image" (change)="onSelectFile($event)">
+            </div>
+            <div class="d-flex btn container">
+                <button type="submit" class="m-4 btn-book btn btn-warning btn-block fw-bold">Cập nhật</button>
+                <button type="reset" class="m-4 btn-book btn btn-warning btn-block fw-bold">Thiết lập lại</button>
+            </div>
+        </form>
+    </div>
+    <div class="content container-fluid align-items-end justify-content-center bg-white" style="font-size: 10px;">
+        <div class="table-responsive">
+            <h3 class="text-center">Bảng danh sách Tour của EIV</h3>
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Id</th>
+                        <th>Địa điểm</th>
+                        <th>Tỉnh / Thành phố</th>
+                        <th>Giá</th>
+                        <th>Thông tin chung</th>
+                        <th>Mô tả</th>
+                        <th>Phương tiện</th>
+                        <th>Lịch trình</th>
+                        <th>Thời gian</th>
+                        <th>Hình ảnh</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let p of tours">
+                    <td class="p-1">{{p.Id}}</td>
+                    <td class="p-1">{{p.Destination}}</td>
+                    <td class="p-1">{{p.Province}}</td>
+                    <td class="p-1">{{p.Price}}</td>
+                    <td class="p-1">{{p.Content}}</td>
+                    <td class="p-1">{{p.Description}}</td>
+                    <td class="p-1">{{p.Transportation }}</td>
+                    <td class="p-1">{{p.Program}}</td>
+                    <td class="p-1">{{p.Time}}</td>
+                    <td class="p-1">{{p.Image}}</td>
+                    <td><button (click)="onEdit(p)"><i class="glyphicon glyphicon-pencil"></i></button></td>
+                    <td><button (click)="onDelete(p._id,tourForm)"><i class="glyphicon glyphicon-trash"></i></button></td>
+                </tr>
+            </table>
+        </div>
+    </div>    
 </div>
+
 <!-- footer -->
 <app-footer></app-footer>

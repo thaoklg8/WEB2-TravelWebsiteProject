@@ -28,11 +28,8 @@ u:any=0;
       next: data => this.user = data, 
       error: err => this.errorMessage = err
     })
-    // console.log("Id user menu: "+this.user._id)
   }
 reset(){
-  // localStorage.setItem('IdUser','')
-  // this.user._id=localStorage.getItem('IdUser')
   this.u=0;
   localStorage.setItem('u','0')
 }

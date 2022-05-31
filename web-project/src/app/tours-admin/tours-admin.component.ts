@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Tour } from '../models/tour';
 import { MyserviceService } from '../myservice.service';
 
@@ -11,10 +12,11 @@ import { MyserviceService } from '../myservice.service';
 
 export class ToursAdminComponent implements OnInit {
   tours: any;
-tour: Tour = new Tour();
+  tour: Tour = new Tour();
   errorMessage: String = ""
   private _toast: any;
-    constructor(private _service:MyserviceService) { }
+  file:any=null;
+    constructor(private _service:MyserviceService, private _router: Router) { }
   
     ngOnInit(): void {
       this.getAllTours();
@@ -26,10 +28,17 @@ tour: Tour = new Tour();
         error: err => this.errorMessage = err
       })
     }
-
+    onSelectFile(event:any){
+      if(event.target.files.length>0){
+        this.file = event.target.files[0];
+      }else{
+        this.file = null;
+      }
+    }
 
     submitData(form:NgForm){
       console.log("Form data ", form.value)
+      // this.tour.Image=this.file
       console.log("Model: ",this.tour)
       if(this.tour._id==null){ //insert
         if(this.tour.Id==""){
@@ -49,18 +58,32 @@ tour: Tour = new Tour();
         else{ if(this.tour.Time ==""){
         alert("Thời gian không được để trống")}
         alert('OK')
-        this._service.postTour(this.tour).subscribe(res=>{
-          let resData = JSON.parse(JSON.stringify(res));
-          if(resData.message ==="success"){
-            alert("Insert Success!")
-            this._toast.success("Inserted successfully!","SUCCESS")
-            this.onReset();
-            this.getAllTours();
+        // this._service.postTour(this.tour).subscribe(res=>{
+        //   let resData = JSON.parse(JSON.stringify(res));
+        //   if(resData.message ==="success"){
+        //     alert("Insert Success!")
+        //     this._toast.success("Inserted successfully!","SUCCESS")
+        //     this.onReset();
+        //     this.getAllTours();
+        //   }
+        //   else{
+        //     alert("Fail!")
+        //   }
+        //    })
+        this._service.uploadData(form).subscribe({
+          next: res => {
+            console.log("success")
+            alert('Đã đăng bài thành công')
+            this._router.navigate(['/review'])
+          },
+          error: err => {
+            console.log("Error: ", err.message)
+            alert('Đăng bài thất bại: ' + err.message )
           }
-          else{
-            alert("Fail!")
-          }
-           })}}}}}} }
+          
+          
+        })
+          }}}}}} }
       }
       else{ //update
         if(this.tour.Id==""){
@@ -80,17 +103,30 @@ tour: Tour = new Tour();
           alert('Hình ảnh không được bỏ trống')}
         else{ if(this.tour.Time ==""){
           alert("Thời gian không được để trống")}
-          this._service.updateTour(this.tour._id, this.tour).subscribe(res=>{
-            let resData = JSON.parse(JSON.stringify(res));
-            if(resData.message ==="success"){
-              alert("Update successfully!")
-              this._toast.info("Updated successfully!","SUCCESS",{timeOut:3000})
-              this.onReset();
-              this.getAllTours();
+          // this._service.updateTour(this.tour._id, this.tour).subscribe(res=>{
+          //   let resData = JSON.parse(JSON.stringify(res));
+          //   if(resData.message ==="success"){
+          //     alert("Update successfully!")
+          //     this._toast.info("Updated successfully!","SUCCESS",{timeOut:3000})
+          //     this.onReset();
+          //     this.getAllTours();
+          //   }
+          //   else{
+          //     alert(resData.message)
+          //   }
+          // })
+          this._service.uploadData(form).subscribe({
+            next: res => {
+              console.log("success")
+              alert('Đã đăng bài thành công')
+              this._router.navigate(['/review'])
+            },
+            error: err => {
+              console.log("Error: ", err.message)
+              alert('Đăng bài thất bại: ' + err.message )
             }
-            else{
-              alert(resData.message)
-            }
+            
+            
           })
       }}}}}}}}
       this.getAllTours();
