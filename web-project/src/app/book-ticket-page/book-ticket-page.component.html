@@ -52,8 +52,10 @@
                                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/9/9c6f6176aba4da5748d57b769726d76e.svg" style="margin-right: 12px;">
                             </div>
                             <input type="number" value=0 class="input-text" #num1>
+                            <!-- <p>{{num1.value}}</p> -->
                         </div>
                     </div>
+
                     <div class="col-lg-4">
                         <div class="input-group w-75">
                             <div class="input-title">Số lượng trẻ em (50%)<span class="text-danger">*</span>
@@ -62,8 +64,8 @@
                             <input type="number" value=0 class="input-text" #num2>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="input-group w-75">
+                    <div class="col-lg-4 mb-10">
+                        <!-- <div class="input-group w-75">
                             <div class="input-title">Địa điểm
                                 <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/0/06c6fdcf3e33d2950e2743ea8c3d2208.svg" width="24" height="24">
                             </div>
@@ -73,7 +75,15 @@
                                 <option value="CanTho">Cần Thơ</option>
                                 <option value="LamDong">Lâm Đồng</option>
                             </select>
+                        </div> -->
+                        <div class="input-title">
+
                         </div>
+                        <div class="input-group w-75">
+                            <button type="submit" class="btn btn-warning btn-block" style="width: 100%;" (click)="send(num1.value, num2.value)">Đăng ký Số lượng vé</button>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -110,10 +120,10 @@
                         </div>
                         <div class="flex_row">
                             <label class="flex-label" for="total">Tổng thanh toán</label>
-                            <input class="flex-input input-text" type="text" id="total" readonly value="{{total}}">
+                            <input class="flex-input input-text" type="text" id="total" readonly value="{{total}} VND">
                         </div>
                         <div class="flex_row">
-                            <label class="flex-label" for="payment">Hình thức thanh toán <span>*</span></label>
+                            <label class="flex-label" for="payment">Hình thức thanh toán</label>
                             <select class="flex-input input-text" id="payment" required>
                             <option value="">Chọn phương thức bạn muốn</option>
                             <option value="internetbanking">Internet Banking</option>
@@ -126,7 +136,8 @@
                             <textarea class="flex-input input-text" name="" id="note" placeholder="Nhập ghi chú vào đây"></textarea>
                         </div>
                         <div class="completed flex_row">
-                            <button class=" btn-default btn-warning btn-block" (click)="send(num1.value,num2.value)">Hoàn thành</button>
+                            <!-- <button class=" btn-warning btn-block" [disabled]="total=='0'" (click)="bookTicket()">Hoàn thành</button> -->
+                            <button type="submit" class="btn btn-warning btn-block" [disabled]="total=='0'" (click)="bookTicket()">Hoàn thành</button>
                         </div>
                     </form>
                 </div>

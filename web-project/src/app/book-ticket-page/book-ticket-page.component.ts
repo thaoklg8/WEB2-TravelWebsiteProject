@@ -19,7 +19,7 @@ idTour:any
 bookForm:any;
 book:any;
 total:any;
-num:any;
+num:any=0;
   constructor(private _service:MyserviceService,private _toast:ToastrService) { }
 
   ngOnInit(): void {
@@ -31,6 +31,7 @@ num:any;
     this.getUserById();
     this.getTourById();
     this.getAllTours();
+    this.total='0'
   }
   getAllTours(){
     this._service.getTours().subscribe({
@@ -65,22 +66,10 @@ var b=parseInt(num2)
 this.num=(a+b);
 this.total =(a+(b/2))*this.tour.Price
 console.log(this.total);
-alert("Đặt vé thành công!")
 return this.total;
   }
-  // get Name(){
-  //   return this.bookForm.controls['name']
-  // }
-  // get Email(){
-  //   return this.bookForm.controls['email']
-  // }
-  // get Phone(){
-  //   return this.bookForm.controls['phone']
-  // }
-  // get Password(){
-  //   return this.bookForm.controls['pwd']
-  // }
-  // get Agree(){
-  //   return this.bookForm.controls['agree']
-  // }
+  bookTicket(){
+
+alert("Đặt vé thành công!")
+  }
 }

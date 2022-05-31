@@ -14,12 +14,12 @@ u:any=0;
   constructor(private _service:MyserviceService) { }
  
   ngOnInit(): void {
+    // localStorage.setItem('u','0')
     this.u=localStorage.getItem('IdUser')
     this.idUser=localStorage.getItem('IdUser')
     if(this.idUser.length>0){
       this.getUserById();
-      localStorage.setItem('u','11111')
-
+      localStorage.setItem('u','1')
     }
     
   }

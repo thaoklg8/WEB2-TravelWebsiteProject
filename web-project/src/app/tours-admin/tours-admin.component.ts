@@ -63,6 +63,9 @@ export class ToursAdminComponent implements OnInit {
           if(resData.message ==="success"){
             alert("Insert Success!")
             this._toast.success("Inserted successfully!","SUCCESS")
+            .then(() => {
+              window.location.reload();
+            })
             this.onReset();
             this.getAllTours();
           }
@@ -106,6 +109,9 @@ export class ToursAdminComponent implements OnInit {
             if(resData.message ==="success"){
               alert("Update successfully!")
               this._toast.info("Updated successfully!","SUCCESS",{timeOut:3000})
+              .then(() => {
+                window.location.reload();
+              })
               this.onReset();
               this.getAllTours();
             }
@@ -129,6 +135,7 @@ export class ToursAdminComponent implements OnInit {
     }
     onEdit(data:Tour){
       this.tour = data;
+      
     }
     onReset(form?:NgForm){
       if(form){
@@ -142,6 +149,9 @@ export class ToursAdminComponent implements OnInit {
           let resData = JSON.parse(JSON.stringify(res));
           if(resData.message ==="success"){
             this._toast.success("Deleted successfully!","SUCCESS")
+            .then(() => {
+              window.location.reload();
+            })
           }
           else{
             alert(resData.message)

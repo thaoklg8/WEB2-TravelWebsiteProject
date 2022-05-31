@@ -29,6 +29,18 @@ export class MyserviceService {
       catchError(this.handleError)
     )
   }
+  getTours3():Observable<Tour[]>{
+    return this._http.get<Tour[]>(`${baseUrl}/tours/3`).pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+  }
+  getTours6():Observable<Tour[]>{
+    return this._http.get<Tour[]>(`${baseUrl}/tours/6`).pipe(
+      retry(2),
+      catchError(this.handleError)
+    )
+  }
   getSearchTours(name:string):Observable<Tour[]>{
     return this._http.get<Tour[]>(`${baseUrl}/tours/search/${name}`).pipe(
       retry(2),

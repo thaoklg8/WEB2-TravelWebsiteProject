@@ -35,8 +35,7 @@
 }
 
 .uc-m-content {
-    overflow: scroll;
-    scrollbar-color: rebeccapurple green;
+    overflow-y: scroll;
     scrollbar-width: thin;
     width: 60vw;
     height: 80vh;
@@ -55,15 +54,15 @@
     background: #fff;
     width: 50%;
     margin: 3% auto;
-    border-radius: 6px;
+    /* border-radius: 6px; */
 }
 
 .uc-m-header {
     padding: 20px;
     background: #0b3582;
     color: #fff;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    /* border-top-left-radius: 6px;
+    border-top-right-radius: 6px; */
     position: relative;
 }
 
@@ -93,7 +92,8 @@
 
 /* ------------------------------- */
 
-@media screen and (max-width: 765px) {
+
+/* @media screen and (max-width: 765px) {
     .bbb {
         order: 1;
         margin-bottom: 20px;
@@ -101,4 +101,4 @@
     .aaa {
         order: 2;
     }
-}
+} */

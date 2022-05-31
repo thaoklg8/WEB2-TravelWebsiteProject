@@ -13,14 +13,31 @@ router.get('/', function(req, res) {
 
 // get all tour
 router.get('/tours', function(req, res) {
+    Tour.find({}, function(err, data) {
+        if (err) {
+            res.json({ message: err.message })
+        } else {
+            res.json(data)
+        }
+    })
+})
+router.get('/tours/6', function(req, res) {
+    Tour.find({}, function(err, data) {
+        if (err) {
+            res.json({ message: err.message })
+        } else {
+            res.json(data)
+        }
+    }).limit(6)
+})
+router.get('/tours/3', function(req, res) {
         Tour.find({}, function(err, data) {
             if (err) {
                 res.json({ message: err.message })
             } else {
                 res.json(data)
             }
-        })
-
+        }).limit(3)
     })
     // get search tour
 router.get('/tours/search/:name', function(req, res) {

@@ -23,15 +23,15 @@
                     <div class="col-md-12" id="detailTour">
                         <div class="page__content--discription text-dark p-5">
                             <p class="title">Destination</p>
-                            {{tours.Destination}}
+                            {{tour.Destination}}
                             <p class="title">Description</p>
-                            {{tours.Description}}
+                            {{tour.Description}}
                             <p class="title">Time</p>
-                            {{tours.Time}}
+                            {{tour.Time}}
                             <p class="title">Transportation</p>
-                            {{tours.Transportation}}
+                            {{tour.Transportation}}
                             <p class="title">Program</p>
-                            {{tours.Program}}
+                            {{tour.Program}}
                         </div>
                     </div>
                 </div>
@@ -101,82 +101,97 @@
                 </div>
             </div>
         </div>
-        <div class="page__content--related mt-4 mb-4 align-items-end justify-content-center">
+
+        <div class="container mt-5 mb-5 align-items-end justify-content-center">
             <div class="page__content" id="page__content">
                 <h3 class="text-center text-dark">ĐỊA ĐIỂM LIÊN QUAN</h3>
             </div>
-            <div class="row">
-                <div class="col-3 col-md-4 col-sm-6 col-xs-12 " style="min-width:300px">
-                    <div class="card mt-3 position-relative item--tours">
-                        <img class="image--tours" src="assets/img/Detail/Hue.png">
+            <div class="row ">
+                <div class="col-3 col-md-4 col-sm-6 col-xs-12" style="min-width:300px" *ngFor="let p of tours">
+                    <div class="card mt-3 position-relative">
+                        <img src="assets/img/Tour/{{p.Image}}.png">
 
                         <div class="card-title">
-                            <p class="card-title text-dark" style=" font-weight: bold;">Đại Nội Huế
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <div class="mr-auto p-2">
-                                    <p class="card-title">
-                                        <i class="bi bi-pin-map-fill"></i><span class="m-3 text-dark">Huế</span>
-                                    </p>
+                            <p hidden>{{p.Id}}</p>
+                            <p class="card-title text-danger m-3" style="font-weight: 600;"><svg xmlns="http://www.w3.org/2000/svg" height="12" fill="currentColor" class="bi bi-pin-map-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+          <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+        </svg><span class="m-3 text-danger">{{p.Destination}}</span></p>
+                            <div class="row m-3">
+                                <div class="col-6">
+                                    <p class="card-title">{{p.Province}}</p>
                                 </div>
-                                <div class="p-2 text-muted">
-                                    <p class="card-title text-center test label label-info price">700000 VNĐ</p>
+                                <div class="col-6">
+                                    <p class="card-title text-center test label label-info">{{p.Price}} VNĐ</p>
+
                                 </div>
                             </div>
-                            <p class="card-body text-dark">Nằm ngay bên bờ sông Hương thơ mộng, Đại nội Huế là một quần thế di tích văn hoá được công nhận là di tích văn hoá thế giới. Địa điểm hội tụ nét đẹp kiến trúc đỉnh cao</p>
-                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block">Chi tiết</button></div>
+
+                            <!-- <p class="test"> Chữ nhấp nháy</p> -->
+                            <style>
+                                @-webkit-keyframes my {
+                                    0% {
+                                        color: #F8CD0A;
+                                    }
+                                    50% {
+                                        color: #fff;
+                                    }
+                                    100% {
+                                        color: #F8CD0A;
+                                    }
+                                }
+                                
+                                @-moz-keyframes my {
+                                    0% {
+                                        color: #F8CD0A;
+                                    }
+                                    50% {
+                                        color: #fff;
+                                    }
+                                    100% {
+                                        color: #F8CD0A;
+                                    }
+                                }
+                                
+                                @-o-keyframes my {
+                                    0% {
+                                        color: #F8CD0A;
+                                    }
+                                    50% {
+                                        color: #fff;
+                                    }
+                                    100% {
+                                        color: #F8CD0A;
+                                    }
+                                }
+                                
+                                @keyframes my {
+                                    0% {
+                                        color: #d00e1e;
+                                    }
+                                    50% {
+                                        color: rgb(11, 4, 9);
+                                    }
+                                }
+                                
+                                .test {
+                                    border-radius: 5px;
+                                    font-weight: bold;
+                                    -webkit-animation: my 700ms infinite;
+                                    -moz-animation: my 700ms infinite;
+                                    -o-animation: my 700ms infinite;
+                                    animation: my 700ms infinite;
+                                }
+                            </style>
+                            <p class="card-body">{{p.Content}}</p>
+                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block" routerLink="/tourDetail" (click)="detail(p._id)"><span>Chi tiết</span></button></div>
                         </div>
+
                     </div>
                 </div>
-
-                <div class="col-3 col-md-4 col-sm-6 col-xs-12 " style="min-width:300px">
-                    <div class="card mt-3 position-relative item--tours">
-                        <img class="image--tours" src="assets/img/Detail/HaNoi1.png">
-
-                        <div class="card-title">
-                            <p class="card-title m-3 text-dark" style=" font-weight: bold;">Lăng Bác Hồ
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <div class="mr-auto p-2">
-                                    <p class="card-title">
-                                        <i class="bi bi-pin-map-fill"></i><span class="m-3 text-dark">Hà Nội</span>
-                                    </p>
-                                </div>
-                                <div class="p-2 text-muted">
-                                    <p class="card-title text-center test label label-info price">500000 VNĐ</p>
-                                </div>
-                            </div>
-                            <p class="card-body text-dark">Lăng Bác là một trong những địa điểm nổi bật nhất mà du khách không thể bỏ qua khi du lịch Hà Nội. Đây là nơi lưu giữ thi hài của chủ tịch Hồ Chí Minh.</p>
-                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block">Chi tiết</button></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3 col-md-4 col-sm-6 col-xs-12 " style="min-width:300px">
-                    <div class="card mt-3 position-relative item--tours">
-                        <img class="image--tours" src="assets/img/Detail/BinhDinh.png">
-
-                        <div class="card-title">
-                            <p class="card-title m-3 text-dark" style=" font-weight: bold;">Cù Lao Xanh
-                            </p>
-                            <div class="d-flex justify-content-between">
-                                <div class="mr-auto p-2">
-                                    <p class="card-title">
-                                        <i class="bi bi-pin-map-fill"></i><span class="m-3 text-dark">Bình Định</span>
-                                    </p>
-                                </div>
-                                <div class="p-2 text-muted">
-                                    <p class="card-title text-center test label label-info price">700000 VNĐ</p>
-                                </div>
-                            </div>
-                            <p class="card-body text-dark">Một món quà vô giá mà thiên nhiên đã ban tặng cho mảnh đất Bình Định. Hai biểu tượng của Cù Lao Xanh hiện nay là ngọn hải đăng.</p>
-                            <div class="m-3 btn-detail"><button type="button" class="btn btn-warning btn-block">Chi tiết</button></div>
-                        </div>
-                    </div>
-                </div>
-
 
             </div>
+
         </div>
     </div>
 

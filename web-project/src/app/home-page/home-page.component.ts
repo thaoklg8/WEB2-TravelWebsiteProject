@@ -18,7 +18,7 @@ errorMessage: String = ""
   }
 
   getAllTours(){
-    this._service.getTours().subscribe({
+    this._service.getTours6().subscribe({
       next: data => this.tours = data, 
       error: err => this.errorMessage = err
     })
