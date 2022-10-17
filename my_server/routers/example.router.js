@@ -140,6 +140,7 @@ router.get('/user/:userId', async function(req, res) {
 
 // insert user
 router.post('/user/user', async function(req, res) {
+
     let user = new User({
         Id: req.body.Id,
         Name: req.body.Name,

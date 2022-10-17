@@ -4,6 +4,7 @@ const port = 3000
 
 
 
+
 const path = require('path')
 const multer = require('multer')
     //API upload file
@@ -48,34 +49,34 @@ app.post("/review/upload/post", (req, res) => {
 
 const Tour = require('./models/Tour')
 app.post("/tour/upload/post", (req, res) => {
-    upload(req, res, async(err) => {
-        res.header("Access-Control-Allow-Origin", "*");
-        // res.header("Access-Control-Allow-Headers", "X-Requested-With");
-        // next()
-        if (err) {
-            res.json({ message: err.message })
-        } else {
-            console.log("File received: %d", req.file.filename)
+        upload(req, res, async(err) => {
+            res.header("Access-Control-Allow-Origin", "*");
+            // res.header("Access-Control-Allow-Headers", "X-Requested-With");
+            // next()
+            if (err) {
+                res.json({ message: err.message })
+            } else {
+                console.log("File received: %d", req.file.filename)
 
-            //Insert data into db
-            let tour = new Tour({
-                Id: req.body.Id,
-                Province: req.body.Province,
-                Price: req.body.Price,
-                Content: req.body.Content,
-                Destination: req.body.Destination,
-                Transportation: req.body.Transportation,
-                Description: req.body.Description,
-                Time: req.body.Time,
-                Program: req.body.Program,
-                Image: req.file.filename,
-            })
-            await tour.save()
-            res.json({ message: "success" })
-        }
+                //Insert data into db
+                let tour = new Tour({
+                    Id: req.body.Id,
+                    Province: req.body.Province,
+                    Price: req.body.Price,
+                    Content: req.body.Content,
+                    Destination: req.body.Destination,
+                    Transportation: req.body.Transportation,
+                    Description: req.body.Description,
+                    Time: req.body.Time,
+                    Program: req.body.Program,
+                    Image: req.file.filename,
+                })
+                await tour.save()
+                res.json({ message: "success" })
+            }
+        })
     })
-})
-/////////////////
+    /////////////////
 
 
 app.use(express.static(path.join(__dirname, '/images')))

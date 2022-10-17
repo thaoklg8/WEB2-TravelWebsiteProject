@@ -19,7 +19,7 @@ export class User{
         this.Phone="";
         this.Password="";
         this.Image="1";
-        this.Role="1";
+        this.Role="2";
         this.Aboutme='';
         this.Location="";
         this.Gender="";
