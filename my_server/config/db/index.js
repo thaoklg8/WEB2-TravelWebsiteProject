@@ -8,7 +8,7 @@ async function connect() {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
-        console.log("Connectt successfully!")
+        console.log("Connect successfully!")
     } catch (err) {
         console.log("Error: ", err.message)
     }
